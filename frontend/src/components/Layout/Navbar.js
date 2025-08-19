@@ -26,6 +26,38 @@ const Navbar = () => {
               Productos
             </Link>
           </li>
+          <li className={styles.navItem}>
+            <Link 
+              href="/normativa" 
+              className={pathname === '/normativa' ? styles.active : ''}
+            >
+              Normativa
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link 
+              href="/about" 
+              className={pathname === '/about' ? styles.active : ''}
+            >
+              Institucionalidad
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link 
+              href="/prensa" 
+              className={pathname === '/prensa' ? styles.active : ''}
+            >
+              Prensa
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link 
+              href="/formacion" 
+              className={pathname === '/formacion' ? styles.active : ''}
+            >
+              Formacion
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

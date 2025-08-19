@@ -6,7 +6,6 @@ const { STRAPI_HOST } = process.env
 export function getProducts(){
   return query("products?populate=cover")
     .then(res => {
-      console.log(res.data)
       // res.data es un array, así que lo retornamos directamente
       return res.data.map(product => ({
         id: product.id,

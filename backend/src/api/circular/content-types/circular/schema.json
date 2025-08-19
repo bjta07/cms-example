@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "circulars",
+  "info": {
+    "singularName": "circular",
+    "pluralName": "circulars",
+    "displayName": "circular"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "documents": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}
