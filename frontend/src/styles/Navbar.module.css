@@ -1,0 +1,35 @@
+.navbar {
+  background-color: #0070f3;
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  margin-right: 2rem;
+}
+
+.navItem a {
+  color: white;
+  text-decoration: none;
+  padding: 1rem 0;
+  display: block;
+  transition: opacity 0.3s;
+}
+
+.navItem a:hover,
+.navItem a.active {
+  opacity: 0.8;
+  text-decoration: none;
+}
