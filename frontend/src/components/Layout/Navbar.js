@@ -20,22 +20,6 @@ const Navbar = () => {
           </li>
           <li className={styles.navItem}>
             <Link 
-              href="/products" 
-              className={pathname === '/products' ? styles.active : ''}
-            >
-              Productos
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link 
-              href="/normativa" 
-              className={pathname === '/normativa' ? styles.active : ''}
-            >
-              Normativa
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link 
               href="/about" 
               className={pathname === '/about' ? styles.active : ''}
             >
@@ -48,6 +32,22 @@ const Navbar = () => {
               className={pathname === '/prensa' ? styles.active : ''}
             >
               Prensa
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link 
+              href="/normativa" 
+              className={pathname === '/normativa' ? styles.active : ''}
+            >
+              Normativa
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link 
+              href="/documentos" 
+              className={pathname === '/documentos' ? styles.active : ''}
+            >
+              Documentos
             </Link>
           </li>
           <li className={styles.navItem}>

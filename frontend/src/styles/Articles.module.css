@@ -1,0 +1,16 @@
+.articleContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item{
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid #666666;
+    padding: 10px 15px;
+    align-items: center;
+}
+
+.item:hover{
+    background-color: (0, 123, 255, 0.2);}

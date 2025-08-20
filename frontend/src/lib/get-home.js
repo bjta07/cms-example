@@ -2,13 +2,11 @@
 
 import { query } from "./strapi"
 
-const { STRAPI_HOST } = process.env
 
 export function getHomeData (){
-  return query("home-page?populate=cover")
+  return query("home-page")
     .then(res => {
-      const { titulo, descripcion, cover, buttonText} = res.data
-      const image = `${STRAPI_HOST}${cover.url}`
-      return { titulo, descripcion, image, buttonText}
+      const { titulo, descripcion} = res.data
+      return { titulo, descripcion}
     })
 };

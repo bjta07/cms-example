@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "circulars",
+  "collectionName": "documentos",
   "info": {
-    "singularName": "circular",
-    "pluralName": "circulars",
-    "displayName": "circular"
+    "singularName": "documento",
+    "pluralName": "documentos",
+    "displayName": "documento"
   },
   "options": {
     "draftAndPublish": true
@@ -13,8 +13,7 @@
   "attributes": {
     "name": {
       "type": "string",
-      "required": true,
-      "unique": true
+      "required": true
     },
     "date": {
       "type": "date",

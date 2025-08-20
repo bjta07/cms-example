@@ -12,23 +12,10 @@
   "pluginOptions": {},
   "attributes": {
     "titulo": {
-      "type": "string"
+      "type": "text"
     },
     "descripcion": {
       "type": "blocks"
-    },
-    "cover": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "buttonText": {
-      "type": "string"
     }
   }
 }
