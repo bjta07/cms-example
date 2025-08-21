@@ -1,7 +1,24 @@
 .dashboard{
     display: grid;
-    grid-template-columns: 1fr 250px;
-    grid-template-rows: 250px 1fr;
+    grid-template-columns: 1fr 450px;
+    grid-template-rows: 300px 1fr;
     padding: 10px;
     justify-self: center;
+}
+
+.cardCirculares{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.cardDocuments{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.descripcion{
+    padding: 20px;
+    width: 700px;
+    margin: 0 auto;
+    border-radius: 8px;
 }

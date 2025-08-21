@@ -1,0 +1,147 @@
+.cardContainer {
+    width: 430px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.noDocuments {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 40px 20px;
+}
+
+.documentsGrid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr;
+}
+
+.documentCard {
+    display: flex;
+    gap: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px;
+    background: #fafafa;
+    transition: all 0.2s ease;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+}
+
+.documentCard:hover {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    color: #e74c3c;
+}
+
+.cardDate {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+    background: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.cardContent {
+    height: 25px;
+}
+
+.cardDocumentTitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: flex-end;
+    height: 30px;
+}
+
+.cardLink {
+    background: #007bff;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.cardLink:hover {
+    background: #0056b3;
+    text-decoration: none;
+}
+
+.showMoreContainer {
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.showMoreText {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    font-style: italic;
+}
+
+/* 
+@media (min-width: 768px) {
+    .documentsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+Para pantallas muy pequeñas 
+@media (max-width: 480px) {
+    .cardContainer {
+        padding: 15px;
+    }
+    
+    .cardTitle {
+        font-size: 18px;
+    }
+    
+    .documentCard {
+        padding: 12px;
+    }
+    
+    .cardDocumentTitle {
+        font-size: 15px;
+    }
+}*/
