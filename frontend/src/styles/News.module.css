@@ -1,0 +1,38 @@
+.newsContainer{
+    display: flex;
+    gap: 20px;
+    max-width: 1000px;
+    padding: 10px 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.newItem{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 305px;
+    background-color: rgba(243, 170, 86, 0.589);
+    padding: 20px;
+    border-radius: 14px;
+    align-items: center;
+}
+
+.newImage{
+    border-radius: 8px;
+}
+
+.newFecha{
+    margin: 0;
+    margin-bottom: 15px;
+    font-weight: 100;
+}
+
+.newDescripcion{
+    text-align: justify;
+    font-weight: 400;
+}
+
+.newItem a{
+    align-items: left;
+}
+

@@ -2,7 +2,7 @@ import Image from "next/image"
 import { BlocksRenderer } from "@strapi/blocks-react-renderer"
 import { getAbout } from "@/lib/get-about"
 import AboutCards from "@/components/UI/AboutCards"
-import Articles from "@/components/UI/Articles"
+import ArticlesWrapper from "@/components/UI/ArticlesWrapper"
 import styles from '@/styles/About.module.css'
 
 const About = async () => {
@@ -28,7 +28,7 @@ const About = async () => {
             </div>
             <div className={styles.articles}>
                 <h3>Articulos de Interes</h3>
-                <Articles/>
+                <ArticlesWrapper/>
             </div>
         </div>
     )

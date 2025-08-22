@@ -1,0 +1,17 @@
+.dashboard{
+    display: grid;
+    grid-template-columns: 1fr 450px ;
+    grid-template-rows: 50px 1fr;
+    padding: 20px 30px;
+    justify-self: center;
+    gap:20px
+}
+
+.noticiasContainer{
+    grid-row: 2/3;
+}
+
+.cardContainer{
+    grid-column: 2/3;
+    grid-row: 1/3
+}
