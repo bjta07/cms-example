@@ -23,6 +23,10 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "descripcion": {
+      "type": "blocks",
+      "required": true
     }
   }
 }

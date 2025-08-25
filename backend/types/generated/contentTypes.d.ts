@@ -417,6 +417,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    descripcion: Schema.Attribute.Blocks & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -493,6 +494,36 @@ export interface ApiCircularCircular extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCongresoCongreso extends Struct.CollectionTypeSchema {
+  collectionName: 'congresos';
+  info: {
+    displayName: 'congreso';
+    pluralName: 'congresos';
+    singularName: 'congreso';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date & Schema.Attribute.Required;
+    documento: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::congreso.congreso'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDocumentoDocumento extends Struct.CollectionTypeSchema {
   collectionName: 'documentos';
   info: {
@@ -517,6 +548,37 @@ export interface ApiDocumentoDocumento extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEspecialidadEspecialidad
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'especialidads';
+  info: {
+    displayName: 'especialidad';
+    pluralName: 'especialidads';
+    singularName: 'especialidad';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date & Schema.Attribute.Required;
+    documento: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::especialidad.especialidad'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titulo: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -566,11 +628,10 @@ export interface ApiNormativaNormativa extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    documento: Schema.Attribute.Media<'files', true> &
-      Schema.Attribute.Required;
-    fecha: Schema.Attribute.Date &
+    date: Schema.Attribute.Date &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'2025-08-22'>;
+    documento: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -664,8 +725,8 @@ export interface ApiReglamentoReglamento extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date: Schema.Attribute.Date & Schema.Attribute.Required;
     documento: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
-    fecha: Schema.Attribute.Date & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1193,7 +1254,9 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::card.card': ApiCardCard;
       'api::circular.circular': ApiCircularCircular;
+      'api::congreso.congreso': ApiCongresoCongreso;
       'api::documento.documento': ApiDocumentoDocumento;
+      'api::especialidad.especialidad': ApiEspecialidadEspecialidad;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::normativa.normativa': ApiNormativaNormativa;
       'api::noticia.noticia': ApiNoticiaNoticia;

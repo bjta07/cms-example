@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "congresos",
+  "info": {
+    "singularName": "congreso",
+    "pluralName": "congresos",
+    "displayName": "congreso"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "documento": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    }
+  }
+}

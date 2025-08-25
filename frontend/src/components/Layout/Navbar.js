@@ -8,7 +8,6 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.container}>
         <ul className={styles.navList}>
           <li className={styles.navItem}>
             <Link 
@@ -59,7 +58,6 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-      </div>
     </nav>
   );
 };

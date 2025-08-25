@@ -1,5 +1,6 @@
 "use client";
 
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Image from "next/image";
 import styles from '@/styles/Modal.module.css';
 
@@ -19,7 +20,16 @@ const Modal = ({ isOpen, onClose, title, description, image }) => {
                     />
                 )}
                 <h2>{title}</h2>
-                <p>{description}</p>
+                
+                {/* Contenedor scrollable para la descripción */}
+                <div className={styles.modalBody}>
+                    {description && Array.isArray(description) ? (
+                        <BlocksRenderer content={description} />
+                    ) : (
+                        <p>No hay descripción disponible</p>
+                    )}
+                </div>
+                
                 <button className={styles.closeButton} onClick={onClose}>
                     Cerrar
                 </button>
@@ -29,5 +39,4 @@ const Modal = ({ isOpen, onClose, title, description, image }) => {
 };
 
 export default Modal;
-
 

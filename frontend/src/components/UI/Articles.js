@@ -49,7 +49,7 @@ const Articles = ({ articles }) => {
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
                 title={selectedArticle?.titulo}
-                description={selectedArticle?.contenido || selectedArticle?.resumen || 'No hay descripción disponible'}
+                description={selectedArticle?.description}
                 image={selectedArticle?.image}
             />
         </div>

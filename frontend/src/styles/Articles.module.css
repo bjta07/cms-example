@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .item{
@@ -13,4 +16,28 @@
 }
 
 .item:hover{
-    background-color: (0, 123, 255, 0.2);}
+    background-color: (0, 123, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .articleContainer {
+        padding: 0 15px;
+    }
+    
+    .item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .articleContainer {
+        padding: 0 10px;
+        gap: 10px;
+    }
+    
+    .item {
+        padding: 10px;
+    }
+}

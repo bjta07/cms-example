@@ -7,8 +7,9 @@ export function getReglamentos(){
         return res.data.map(reglamento => ({
             id: reglamento.id,
             titulo: reglamento.titulo,
-            documento: reglamento.documento ? `${STRAPI_HOST}${reglamento.documento.url}` : null,
-            documento: reglamento.documento
+            fecha: reglamento.date,
+            document: reglamento.documento ? `${STRAPI_HOST}${reglamento.documento.url}` : null,
+            documents: reglamento.documento
         }))
     })
 }

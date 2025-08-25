@@ -115,3 +115,94 @@
 .slide {
     animation: fadeIn 0.5s ease-out;
 }
+
+@media (max-width: 1024px) {
+    .carousel {
+        height: 450px;
+    }
+
+    .imageContainer {
+        width: 350px;
+        height: 250px;
+    }
+
+    .content h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carouselContainer {
+        padding: 15px;
+    }
+
+    .carousel {
+        height: 400px;
+    }
+
+    .imageContainer {
+        width: 300px;
+        height: 200px;
+    }
+
+    .content h2 {
+        font-size: 20px;
+    }
+
+    .text {
+        font-size: 14px;
+        max-height: 80px;
+    }
+
+    .arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carouselContainer {
+        padding: 10px;
+    }
+
+    .carousel {
+        height: 350px;
+    }
+
+    .imageContainer {
+        width: 250px;
+        height: 180px;
+    }
+
+    .content {
+        max-width: 300px;
+    }
+
+    .content h2 {
+        font-size: 18px;
+    }
+
+    .date {
+        font-size: 12px;
+    }
+
+    .text {
+        font-size: 13px;
+        max-height: 70px;
+    }
+
+    .arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .arrowLeft {
+        left: 10px;
+    }
+
+    .arrowRight {
+        right: 10px;
+    }
+}

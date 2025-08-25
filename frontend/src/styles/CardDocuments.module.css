@@ -121,14 +121,29 @@
     font-style: italic;
 }
 
-/* 
-@media (min-width: 768px) {
-    .documentsGrid {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1024px) {
+    .cardContainer {
+        width: 380px;
     }
 }
 
-Para pantallas muy pequeñas 
+@media (max-width: 768px) {
+    .cardContainer {
+        width: 100%;
+        max-width: 430px;
+    }
+
+    .documentsGrid {
+        gap: 12px;
+    }
+
+    .documentCard {
+        height: auto;
+        min-height: 50px;
+        flex-wrap: wrap;
+    }
+}
+
 @media (max-width: 480px) {
     .cardContainer {
         padding: 15px;
@@ -145,4 +160,14 @@ Para pantallas muy pequeñas
     .cardDocumentTitle {
         font-size: 15px;
     }
-}*/
+
+    .cardDate {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+
+    .cardLink {
+        padding: 4px 6px;
+        font-size: 11px;
+    }
+}

@@ -17,13 +17,13 @@
     },
     "documento": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "allowedTypes": [
         "files"
       ]
     },
-    "fecha": {
+    "date": {
       "type": "date",
       "required": true,
       "default": "2025-08-22"

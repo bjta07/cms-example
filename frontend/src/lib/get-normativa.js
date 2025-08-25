@@ -7,8 +7,11 @@ export function getNormativas(){
         return res.data.map(normativa => ({
             id: normativa.id,
             titulo: normativa.titulo,
-            documento: normativa.documento ? `${STRAPI_HOST}${normativa.documento.url}` : null,
-            documento: normativa.documento
+            fecha: normativa.date,
+            document: normativa.documento ? `${STRAPI_HOST}${normativa.documento.url}` : null,
+            documents: normativa.documento
         }))
     })
 }
+
+export default getNormativas

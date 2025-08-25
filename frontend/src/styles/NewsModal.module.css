@@ -1,0 +1,258 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modalContent {
+    background-color: white;
+    border-radius: 12px;
+    max-width: 800px; /* Más ancho para acomodar mejor las imágenes */
+    width: 95%;
+    max-height: 90vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modalHeader {
+    padding: 2rem 2rem 1rem 2rem;
+    border-bottom: 1px solid #e5e7eb;
+    flex-shrink: 0;
+}
+
+.modalHeader h2 {
+    margin: 0 0 0.5rem 0;
+    color: #1f2937;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.fecha {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.modalBody {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem 2rem;
+}
+
+.imageGallery {
+    margin-bottom: 2rem;
+}
+
+.imageContainer {
+    margin-bottom: 1rem;
+}
+
+.imageContainer:last-child {
+    margin-bottom: 0;
+}
+
+.newsImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.newsContent {
+    line-height: 1.7;
+}
+
+.newsContent p {
+    margin-bottom: 1.5rem;
+    color: #374151;
+    font-size: 1rem;
+}
+
+.newsContent h3,
+.newsContent h4,
+.newsContent h5,
+.newsContent h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.newsContent ul,
+.newsContent ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.newsContent li {
+    margin-bottom: 0.5rem;
+    color: #374151;
+}
+
+.newsContent blockquote {
+    border-left: 4px solid #3b82f6;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #6b7280;
+    background-color: #f8fafc;
+    padding: 1rem 1rem 1rem 2rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.closeButton {
+    margin: 1rem 2rem 2rem 2rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+    flex-shrink: 0;
+    align-self: flex-end;
+}
+
+.closeButton:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.closeButton:active {
+    transform: translateY(0);
+}
+
+/* Estilos personalizados para el scrollbar */
+.modalBody::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modalBody::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.modalBody::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.modalBody::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .modalOverlay {
+        padding: 0.5rem;
+    }
+    
+    .modalContent {
+        width: 98%;
+        max-height: 95vh;
+    }
+
+    .modalHeader {
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+    }
+
+    .modalHeader h2 {
+        font-size: 1.3rem;
+    }
+
+    .modalBody {
+        padding: 1rem 1.5rem;
+    }
+
+    .closeButton {
+        margin: 0.75rem 1.5rem 1.5rem 1.5rem;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .modalOverlay {
+        padding: 0.25rem;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+    
+    .modalContent {
+        width: 100%;
+        max-height: 92vh;
+        border-radius: 8px;
+    }
+
+    .modalHeader {
+        padding: 1.25rem 1.25rem 0.75rem 1.25rem;
+    }
+
+    .modalHeader h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .fecha {
+        font-size: 0.85rem;
+    }
+
+    .modalBody {
+        padding: 1rem 1.25rem;
+    }
+
+    .newsContent p {
+        font-size: 0.95rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .imageGallery {
+        margin-bottom: 1.5rem;
+    }
+
+    .closeButton {
+        margin: 0.5rem 1.25rem 1.25rem 1.25rem;
+        width: calc(100% - 2.5rem);
+        align-self: stretch;
+        padding: 0.75rem;
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+    .modalHeader {
+        padding: 1rem;
+    }
+    
+    .modalHeader h2 {
+        font-size: 1.1rem;
+    }
+    
+    .modalBody {
+        padding: 0.75rem 1rem;
+    }
+    
+    .newsContent p {
+        font-size: 0.9rem;
+    }
+    
+    .closeButton {
+        margin: 0.5rem 1rem 1rem 1rem;
+        width: calc(100% - 2rem);
+    }
+}

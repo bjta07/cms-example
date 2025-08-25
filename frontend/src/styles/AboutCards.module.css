@@ -1,6 +1,7 @@
 .cardsContainer{
     width: 430px;
-    height: 203px;
+    height: auto;
+    min-height: 203px;
     align-items: center;
 }
 
@@ -15,4 +16,37 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     margin-right: 20px;
     text-align: justify;
+}
+
+@media (max-width: 1024px) {
+    .cardsContainer {
+        width: 380px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cardsContainer {
+        width: 100%;
+        max-width: 430px;
+    }
+
+    .cardsContainer div {
+        gap: 20px;
+    }
+
+    .item {
+        margin-right: 0;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardsContainer div {
+        gap: 15px;
+    }
+
+    .item {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
 }

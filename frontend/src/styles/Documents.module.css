@@ -152,3 +152,71 @@
     font-style: italic;
 }
 
+@media (max-width: 1024px) {
+    .mainContainer {
+        gap: 100px;
+    }
+
+    .container {
+        width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContainer {
+        flex-direction: column;
+        gap: 40px;
+        padding: 15px;
+        align-items: center;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 550px;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 15px;
+        padding: 12px;
+    }
+
+    .documents {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mainContainer {
+        padding: 10px;
+    }
+
+    .controls {
+        padding: 10px;
+    }
+
+    .document {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .documentInfo {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .documentTitle {
+        font-size: 15px;
+    }
+
+    .documentDate {
+        font-size: 13px;
+    }
+
+    .documentLink {
+        width: 100%;
+        text-align: center;
+    }
+}
+

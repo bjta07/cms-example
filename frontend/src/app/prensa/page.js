@@ -11,7 +11,9 @@ const Prensa = async () => {
       ])
     return(
         <div className={styles.dashboard}>
-            <h2>Noticias y comunicados oficiales</h2>
+            <div className={styles.title}>
+                <h2>Noticias y comunicados oficiales</h2>
+            </div>
             <div className={styles.noticiasContainer}>
                 <News/>
             </div>
