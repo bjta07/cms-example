@@ -5,7 +5,7 @@ import Image from "next/image";
 import { extractPlainText, truncateText } from "@/utils/textUtils";
 import styles from '@/styles/News.module.css'
 import Pagination from "./Pagination";
-import NewsModal from "./NewsModal"; // Importar el nuevo modal
+import NewsModal from "./NewsModal";
 import { useState, useEffect } from "react";
 
 const News = () => {
@@ -56,7 +56,7 @@ const News = () => {
 
     // Funciones para manejar el modal
     const handleLeerMas = (newsItem) => {
-        console.log('Opening modal for news item:', newsItem); // Debug
+        console.log('Opening modal for news item:', newsItem);
         setSelectedNews(newsItem);
         setIsModalOpen(true);
     };
@@ -64,6 +64,83 @@ const News = () => {
     const handleCloseModal = () => {
         setIsModalOpen(false);
         setSelectedNews(null);
+    };
+
+    // Función para determinar si un archivo es video
+    const isVideoFile = (url) => {
+        if (!url) return false;
+        const videoExtensions = ['.mp4', '.webm', '.ogg', '.avi', '.mov'];
+        return videoExtensions.some(ext => url.toLowerCase().includes(ext));
+    };
+
+    // Función para renderizar media (imagen o video)
+    const renderMedia = (newsItem) => {
+        // Verificar si hay imagen
+        if (newsItem.imagen) {
+            if (isVideoFile(newsItem.imagen)) {
+                return (
+                    <div className={styles.mediaContainer}>
+                        <video
+                            className={styles.newVideo}
+                            controls
+                            width={269}
+                            height={179}
+                            poster={newsItem.thumbnail || undefined} // Si tienes thumbnails
+                        >
+                            <source src={newsItem.imagen} type="video/mp4" />
+                            Tu navegador no soporta el elemento video.
+                        </video>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className={styles.mediaContainer}>
+                        <Image
+                            className={styles.newImage}
+                            src={newsItem.imagen}
+                            alt={newsItem.titulo}
+                            width={269}
+                            height={179}
+                        />
+                    </div>
+                );
+            }
+        }
+
+        // Si no hay imagen principal, verificar si hay imágenes/videos adicionales
+        if (newsItem.imagenes && newsItem.imagenes.length > 0) {
+            const firstMedia = newsItem.imagenes[0];
+            if (isVideoFile(firstMedia)) {
+                return (
+                    <div className={styles.mediaContainer}>
+                        <video
+                            className={styles.newVideo}
+                            controls
+                            width={269}
+                            height={179}
+                            poster={newsItem.thumbnail || undefined}
+                        >
+                            <source src={firstMedia} type="video/mp4" />
+                            Tu navegador no soporta el elemento video.
+                        </video>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className={styles.mediaContainer}>
+                        <Image
+                            className={styles.newImage}
+                            src={firstMedia}
+                            alt={newsItem.titulo}
+                            width={269}
+                            height={179}
+                        />
+                    </div>
+                );
+            }
+        }
+
+        return null; // No hay media para mostrar
     };
 
     if (isLoading) {
@@ -82,20 +159,9 @@ const News = () => {
         <>
             <div className={styles.newsContainer}>
                 {news.map((newsItem) => {
-                    console.log('Rendering news item:', newsItem);
                     return (
                         <div key={newsItem.id} className={styles.newItem}>
-                            {newsItem.imagen && (
-                                <div>
-                                    <Image
-                                        className={styles.newImage}
-                                        src={newsItem.imagen}
-                                        alt={newsItem.titulo}
-                                        width={269}
-                                        height={179}
-                                    />
-                                </div>
-                            )}
+                            {renderMedia(newsItem)}
                             <h4>{newsItem.titulo}</h4>
                             <p className={styles.newFecha}>
                                 {new Date(newsItem.fecha).toLocaleDateString('es-ES',{
@@ -133,7 +199,8 @@ const News = () => {
                 titulo={selectedNews?.titulo}
                 fecha={selectedNews?.fecha}
                 contenido={selectedNews?.contenido}
-                imagenes={selectedNews?.imagenes} // Pasamos todas las imágenes
+                imagenes={selectedNews?.imagenes}
+                imagen={selectedNews?.imagen} // Pasamos también la imagen principal
             />
         </>
     )

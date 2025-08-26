@@ -6,6 +6,7 @@ import { getDocuments } from "@/lib/get-documents"
 import { getCirculars } from "@/lib/get-circulars"
 import NewsCarouselWrapper from '@/components/UI/NewsCarouselWrapper';
 
+
 const Home = async () => {
   const {titulo, descripcion} = await getHomeData();
   const [documents, circulars] = await Promise.all([

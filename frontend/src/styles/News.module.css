@@ -3,6 +3,7 @@
     gap: 20px;
     padding: 10px 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    background-color: #ffff;
 }
 
 .newItem{
@@ -10,7 +11,8 @@
     flex-direction: column;
     gap: 5px;
     width: 305px;
-    background-color: rgba(243, 170, 86, 0.589);
+    background-color: rgba(240, 248, 255, 0.7);
+    border: 1px solid rgba(221, 221, 221, 1);
     padding: 20px;
     border-radius: 14px;
     align-items: center;
@@ -33,6 +35,10 @@
 
 .newItem a{
     align-items: left;
+}
+
+.leermas{
+    color: rgba(39, 174, 96, 1);
 }
 
 .loading,
@@ -62,6 +68,43 @@
     color: #6c757d;
     border: 1px solid #e9ecef;
     background-color: #f8f9fa;
+}
+
+/* Agregar estos estilos a tu News.module.css existente */
+
+.mediaContainer {
+    width: 269px;
+    height: 179px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.newVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.newImage {
+    border-radius: 8px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .mediaContainer {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    
+    .newVideo,
+    .newImage {
+        width: 100%;
+        height: auto;
+    }
 }
 
 @media (max-width: 1024px) {

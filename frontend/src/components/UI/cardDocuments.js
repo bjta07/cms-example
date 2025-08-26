@@ -30,7 +30,6 @@ const CardDocuments = ({ documents, title = "Documentos Recientes", limit = 4 })
     return (
         <div className={styles.cardContainer}>
             <h3 className={styles.cardTitle}>{title}</h3>
-            
             <div className={styles.documentsGrid}>
                 {processedDocuments.map((document) => (
                     <div key={document.id} className={styles.documentCard}>

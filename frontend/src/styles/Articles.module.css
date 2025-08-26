@@ -4,7 +4,11 @@
     gap: 15px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 5px 10px;
+    background-color: #ffff;
+    border-left: 6px solid rgba(0, 51, 102, 1);
+    border-radius: 8px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
 
 .item{
@@ -16,7 +20,7 @@
 }
 
 .item:hover{
-    background-color: (0, 123, 255, 0.2);
+    background-color: rgba(39, 174, 96, 0.15);
 }
 
 @media (max-width: 768px) {

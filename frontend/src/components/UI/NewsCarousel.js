@@ -1,4 +1,6 @@
 'use client';
+
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import Image from "next/image";
 import { extractPlainText, truncateText } from "@/utils/textUtils";
@@ -17,6 +19,91 @@ const NewsCarousel = ({ news }) => {
             setLatestNews(sortedNews);
         }
     }, [news]);
+
+    // Función para determinar si un archivo es video
+    const isVideoFile = (url) => {
+        if (!url) return false;
+        const videoExtensions = ['.mp4', '.webm', '.ogg', '.avi', '.mov', '.mkv'];
+        return videoExtensions.some(ext => url.toLowerCase().includes(ext));
+    };
+
+    // Función para renderizar media (imagen o video)
+    const renderMedia = (newsItem) => {
+        // Verificar si hay imagen principal
+        if (newsItem.imagen) {
+            if (isVideoFile(newsItem.imagen)) {
+                return (
+                    <div className={styles.imageContainer}>
+                        <video
+                            className={styles.newsVideo}
+                            controls
+                            width={250}
+                            height={250}
+                            poster={newsItem.thumbnail || undefined}
+                            preload="metadata"
+                        >
+                            <source src={newsItem.imagen} type="video/mp4" />
+                            <source src={newsItem.imagen} type="video/webm" />
+                            <source src={newsItem.imagen} type="video/ogg" />
+                            Tu navegador no soporta el elemento video.
+                        </video>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className={styles.imageContainer}>
+                        <Image
+                            className={styles.newsImage}
+                            src={newsItem.imagen}
+                            alt={newsItem.titulo}
+                            width={250}
+                            height={250}
+                            style={{ objectFit: 'cover' }}
+                        />
+                    </div>
+                );
+            }
+        }
+
+        // Si no hay imagen principal, verificar si hay imágenes/videos adicionales
+        if (newsItem.imagenes && newsItem.imagenes.length > 0) {
+            const firstMedia = newsItem.imagenes[0];
+            if (isVideoFile(firstMedia)) {
+                return (
+                    <div className={styles.imageContainer}>
+                        <video
+                            className={styles.newsVideo}
+                            controls
+                            width={250}
+                            height={250}
+                            poster={newsItem.thumbnail || undefined}
+                            preload="metadata"
+                        >
+                            <source src={firstMedia} type="video/mp4" />
+                            <source src={firstMedia} type="video/webm" />
+                            <source src={firstMedia} type="video/ogg" />
+                            Tu navegador no soporta el elemento video.
+                        </video>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className={styles.imageContainer}>
+                        <Image
+                            className={styles.newsImage}
+                            src={firstMedia}
+                            alt={newsItem.titulo}
+                            width={250}
+                            height={250}
+                            style={{ objectFit: 'cover' }}
+                        />
+                    </div>
+                );
+            }
+        }
+
+        return null; // No hay media para mostrar
+    };
 
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => 
@@ -68,18 +155,9 @@ const NewsCarousel = ({ news }) => {
                                 className={styles.carouselSlide}
                             >
                                 <div className={styles.newsCard}>
-                                    {newsItem.imagen && (
-                                        <div className={styles.imageContainer}>
-                                            <Image
-                                                className={styles.newsImage}
-                                                src={newsItem.imagen}
-                                                alt={newsItem.titulo}
-                                                width={250}
-                                                height={250}
-                                                style={{ objectFit: 'cover' }}
-                                            />
-                                        </div>
-                                    )}
+                                    {/* Renderizar media (imagen o video) */}
+                                    {renderMedia(newsItem)}
+                                    
                                     <div className={styles.newsContent}>
                                         <h3 className={styles.newsTitle}>{newsItem.titulo}</h3>
                                         <p className={styles.newsDate}>
@@ -93,9 +171,9 @@ const NewsCarousel = ({ news }) => {
                                         <p className={styles.newsDescription}>
                                             {truncateText(extractPlainText(newsItem.contenido), 120)}
                                         </p>
-                                        <button className={styles.readMoreButton}>
+                                        <Link href='/prensa' className={styles.readMoreButton}>
                                             Leer más
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

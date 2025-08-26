@@ -1,9 +1,10 @@
 .cardContainer {
     width: 430px;
     padding: 20px;
-    background: #fff;
+    background-color: rgba(255, 255, 255, 1); /* Blanco sólido */
+    border-left: 6px solid rgba(0, 51, 102, 1);
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cardTitle {
@@ -31,7 +32,7 @@
 .documentCard {
     display: flex;
     gap: 10px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgba(221, 221, 221, 1);
     border-radius: 6px;
     padding: 15px;
     background: #fafafa;
@@ -92,7 +93,7 @@
 }
 
 .cardLink {
-    background: #007bff;
+    background: rgba(0, 123, 255, 1);
     color: white;
     padding: 5px 8px;
     border-radius: 4px;

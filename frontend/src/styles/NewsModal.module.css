@@ -233,6 +233,313 @@
     }
 }
 
+.carousel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.carouselContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Contenedor del slider con overflow oculto */
+.imageSlider {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Track que contiene todas las imágenes */
+.imageTrack {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+}
+
+/* Cada slide individual */
+.imageSlide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+}
+
+.newsImage {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    transition: opacity 0.3s ease;
+}
+
+/* Botones del carrusel */
+.carouselButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    z-index: 10;
+    user-select: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carouselButton:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.carouselButton:active {
+    transform: translateY(-50%) scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+.prevButton {
+    left: 10px;
+}
+
+.nextButton {
+    right: 10px;
+}
+
+/* Indicadores */
+.carouselIndicators {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.indicator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #007bff;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.indicator:hover {
+    transform: scale(1.2);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.activeIndicator {
+    background: #007bff;
+    transform: scale(1.4);
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.activeIndicator::before {
+    transform: scale(1);
+}
+
+.activeIndicator:hover {
+    background: #0056b3;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+/* Contador de imágenes */
+.imageCounter {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.imageCounter:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.05);
+}
+
+/* Agregar estos estilos a tu NewsModal.module.css existente */
+
+/* Estilos para videos en el modal */
+.newsVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: #000;
+}
+
+/* Indicadores diferenciados para videos e imágenes */
+.videoIndicator {
+    background-color: #ff6b6b !important;
+    border: 2px solid #ff6b6b;
+}
+
+.imageIndicator {
+    background-color: #4ecdc4 !important;
+    border: 2px solid #4ecdc4;
+}
+
+.videoIndicator.activeIndicator {
+    background-color: #ff5252 !important;
+    transform: scale(1.2);
+}
+
+.imageIndicator.activeIndicator {
+    background-color: #26a69a !important;
+    transform: scale(1.2);
+}
+
+/* Contador con tipo de media */
+.mediaType {
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+/* Asegurar que los slides mantengan su tamaño */
+.imageSlide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+/* Responsive para videos */
+@media (max-width: 768px) {
+    .newsVideo {
+        width: 100%;
+        height: auto;
+        max-height: 60vh;
+    }
+    
+    .imageSlide {
+        height: auto;
+        min-height: 200px;
+    }
+}
+
+/* Transiciones suaves */
+.imageTrack {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Estilos para cuando se reproduce un video */
+.newsVideo:focus {
+    outline: 2px solid #ff6b6b;
+    outline-offset: 2px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .imageSlider {
+        height: 250px;
+    }
+    
+    .carouselButton {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+    
+    .prevButton {
+        left: 8px;
+    }
+    
+    .nextButton {
+        right: 8px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .carouselIndicators {
+        gap: 10px;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .imageSlider {
+        height: 200px;
+    }
+    
+    .carouselButton {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+    
+    .prevButton {
+        left: 5px;
+    }
+    
+    .nextButton {
+        right: 5px;
+    }
+    
+    .imageCounter {
+        font-size: 12px;
+        padding: 4px 8px;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
 /* Móviles muy pequeños */
 @media (max-width: 360px) {
     .modalHeader {

@@ -5,10 +5,10 @@ import { getDocuments } from "@/lib/get-documents"
 import styles from '@/styles/Noticias.module.css'
 
 const Prensa = async () => {
-      const [documents, circulars] = await Promise.all([
-          getDocuments(),
-          getCirculars()
-      ])
+    const [documents, circulars] = await Promise.all([
+        getDocuments(),
+        getCirculars()
+    ])
     return(
         <div className={styles.dashboard}>
             <div className={styles.title}>

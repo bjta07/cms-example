@@ -7,9 +7,6 @@ const Header = () => {
       <div className={styles.hero}>
         <Image className={styles.logo}src='/images/logo.png' alt="logo" width={115} height={115} />
         <h1>Colegio de Enfermeras de Bolivia</h1>
-        <div className="search-bar">
-          <input type="text" placeholder="Buscar" />
-        </div>
       </div>
     </header>
   );
