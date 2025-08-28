@@ -5,8 +5,11 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.hero}>
-        <Image className={styles.logo}src='/images/logo.png' alt="logo" width={115} height={115} />
-        <h1>Colegio de Enfermeras de Bolivia</h1>
+        <div className={styles.info}>
+          <p>(+591) 777-77-777</p>
+          <p>|</p>
+          <p>colEnfermerasBolivia@gmail.com</p>
+        </div>
       </div>
     </header>
   );

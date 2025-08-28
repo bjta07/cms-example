@@ -1,20 +1,33 @@
 .navbar {
-  background-color: #003366;
+  background-color: #ffffff;
   padding: 10px;
+  display: flex;
+  gap: 250px;
+  justify-content: center;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 150px;
+  gap: 100px;
   margin: 0;
   padding: 0;
-  flex-wrap: wrap;
+  align-items: center;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+}
+
+.logo h1{
+  color: #003366;
+  font-size: 45px;
 }
 
 .navbar a {
-  color: #ffffff;
+  color: #003366;
   text-decoration: none;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
@@ -27,6 +40,102 @@
 .navItem a.active {
   opacity: 0.8;
   text-decoration: none;
+}
+
+/* Nuevos estilos para el dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdownToggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #003366;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdownArrow {
+  font-size: 0.8em;
+  transition: transform 0.2s ease;
+}
+
+.dropdownToggle:hover {
+  opacity: 0.8;
+}
+
+.dropdown:hover .dropdownArrow {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;       /* se pega justo debajo del botón */
+  left: 0;
+  background: #003366;
+  border: 1px solid #004080;
+  border-radius: 4px; /* menos redondeado, más limpio */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  min-width: 180px;
+  z-index: 1000;
+  list-style: none;
+  margin: 0;       /* quitamos el 5px extra que creaba hueco */
+  padding: 0;
+  display: block;
+  gap: -50px;
+}
+
+.dropdownItem {
+  margin: 0;
+  padding: 0;
+  
+}
+
+.dropdownItem{
+  display: block;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+  line-height: 1.4;
+  width: 100%;
+  white-space: nowrap;
+  box-sizing: border-box;
+
+  transition: background-color 0.25s ease, padding-left 0.25s ease;
+}
+
+.dropdownItem:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Eliminar el border-bottom del enlace */
+.dropdownItem:not(:last-child) a {
+  border-bottom: none;
+}
+
+.dropdownItem a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  padding-left: 18px;
+}
+
+.dropdownItem a.active {
+  opacity: 0.8;
+}
+
+/* Ajuste para el estado activo del dropdown principal */
+.dropdown .active {
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
 }
 
 @media (max-width: 1024px) {
