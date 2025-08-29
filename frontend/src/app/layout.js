@@ -4,7 +4,7 @@ import Footer from '../components/Layout/Footer';
 import './globals.css';
 
 export const metadata = {
-  title: 'Mi CMS',
+  title: 'Colegio de Enfermeras de Bolivia',
   description: 'CMS creado con Next.js y Strapi',
 };
 

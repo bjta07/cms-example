@@ -1,0 +1,64 @@
+.container {
+  margin-bottom: 2rem;
+}
+
+.containerTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+/* Estados de carga, error y vacío */
+.loadingContainer,
+.errorContainer,
+.emptyContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid;
+}
+
+.loadingContainer {
+  background-color: #f9fafb;
+  border-color: #e5e7eb;
+}
+
+.errorContainer {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+}
+
+.emptyContainer {
+  background-color: #f9fafb;
+  border-color: #e5e7eb;
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 0.75rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingText {
+  color: #6b7280;
+}
+
+.errorText {
+  color: #dc2626;
+}
+
+.emptyText {
+  color: #6b7280;
+}

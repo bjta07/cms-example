@@ -524,6 +524,38 @@ export interface ApiCongresoCongreso extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDepartamentalDepartamental
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'departamentals';
+  info: {
+    displayName: 'departamental';
+    pluralName: 'departamentals';
+    singularName: 'departamental';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descripcion: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::departamental.departamental'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ApiDocumentoDocumento extends Struct.CollectionTypeSchema {
   collectionName: 'documentos';
   info: {
@@ -708,6 +740,37 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRegionalRegional extends Struct.CollectionTypeSchema {
+  collectionName: 'regionals';
+  info: {
+    displayName: 'regional';
+    pluralName: 'regionals';
+    singularName: 'regional';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descripcion: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::regional.regional'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -1255,12 +1318,14 @@ declare module '@strapi/strapi' {
       'api::card.card': ApiCardCard;
       'api::circular.circular': ApiCircularCircular;
       'api::congreso.congreso': ApiCongresoCongreso;
+      'api::departamental.departamental': ApiDepartamentalDepartamental;
       'api::documento.documento': ApiDocumentoDocumento;
       'api::especialidad.especialidad': ApiEspecialidadEspecialidad;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::normativa.normativa': ApiNormativaNormativa;
       'api::noticia.noticia': ApiNoticiaNoticia;
       'api::product.product': ApiProductProduct;
+      'api::regional.regional': ApiRegionalRegional;
       'api::reglamento.reglamento': ApiReglamentoReglamento;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

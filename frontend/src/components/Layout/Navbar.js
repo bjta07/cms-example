@@ -43,6 +43,14 @@ const Navbar = () => {
             Prensa
           </Link>
         </li>
+        <li className={styles.navItem}>
+          <Link
+            href="/afiliados"
+            className={pathname === '/afiliados' ? styles.active : ''}
+          >
+            Afiliados
+          </Link>
+        </li>
         <li 
         className={`${styles.navItem} ${styles.dropdown}`}
         onMouseEnter={() => setIsDropdownOpen(true)}

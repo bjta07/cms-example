@@ -1,0 +1,37 @@
+.container {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 3rem 1rem;
+}
+
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 3rem;
+}
+
+.carouselSection {
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .pageTitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .carouselSection {
+    margin-bottom: 2rem;
+  }
+}

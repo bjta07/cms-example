@@ -10,17 +10,17 @@ const About = async () => {
     return(
         <div className={styles.dashboard}>
             <div className={styles.welcome}>
-                <h3>{titulo}</h3>
-                    <div>
                         <Image
                             src={image}
                             alt="hero"
                             className={styles.aboutImage}
-                            width={140}
-                            height={140}
+                            width={493}
+                            height={534}
                         />
-                        <BlocksRenderer content={descripcion}></BlocksRenderer>
-                    </div>
+                        <div className={styles.content}>
+                            <h3>{titulo}</h3>
+                            <BlocksRenderer content={descripcion}></BlocksRenderer>
+                        </div>
             </div>
             <div className={styles.cards}>
                 <AboutCards filter="Mision"/>

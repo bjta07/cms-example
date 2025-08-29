@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "regionals",
+  "info": {
+    "singularName": "regional",
+    "pluralName": "regionals",
+    "displayName": "regional"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "descripcion": {
+      "type": "blocks",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
