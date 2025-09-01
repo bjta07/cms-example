@@ -21,18 +21,7 @@ export default function Afiliados() {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h1 className={styles.pageTitle}>
-          Regionales y Departamentales
-        </h1>
         
-        {/* Carrusel de Regionales */}
-        <DataCarouselWrapper
-          title="Regionales"
-          dataFetcher={getRegionales}
-          onItemClick={handleItemClick}
-          showTitle={true}
-          className={styles.carouselSection}
-        />
         
         {/* Carrusel de Departamentales */}
         <DataCarouselWrapper
@@ -43,6 +32,14 @@ export default function Afiliados() {
           className={styles.carouselSection}
         />
         
+        {/* Carrusel de Regionales */}
+        <DataCarouselWrapper
+          title="Regionales"
+          dataFetcher={getRegionales}
+          onItemClick={handleItemClick}
+          showTitle={true}
+          className={styles.carouselSection}
+        />
       </main>
     </div>
   );

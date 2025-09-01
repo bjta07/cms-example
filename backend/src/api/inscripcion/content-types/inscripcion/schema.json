@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inscripcions",
+  "info": {
+    "singularName": "inscripcion",
+    "pluralName": "inscripcions",
+    "displayName": "inscripcion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "requisitos": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

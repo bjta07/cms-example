@@ -32,16 +32,37 @@
     font-size: 64px;
 }
 
-.mainTittle button{
+.mainTittle .button {
     width: 110px;
     height: 40px;
     border: none;
     border-radius: 8px;
-    padding: 12px;
+    padding: 0; /* Cambiado de 12px a 0 para mejor control */
     background-color: #026FEB;
     color: #ffffff;
     align-self: flex-end;
     margin-top: 20px;
+    
+    /* Nuevos estilos para centrado y comportamiento */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Quita el subrayado */
+    font-weight: 500;
+    transition: all 0.3s ease; /* Transición suave para el hover */
+    box-shadow: 0 2px 4px rgba(2, 111, 235, 0.2);
+}
+
+.mainTittle .button:hover {
+    text-decoration: none; /* Asegura que no aparezca subrayado en hover */
+    transform: translateY(-2px); /* Hace que sobresalga */
+    box-shadow: 0 6px 12px rgba(2, 111, 235, 0.3); /* Sombra más profunda */
+    background-color: #0056d6; /* Opcional: color ligeramente más oscuro */
+}
+
+.mainTittle .button:active {
+    transform: translateY(-1px); /* Efecto al hacer click */
+    box-shadow: 0 4px 8px rgba(2, 111, 235, 0.25);
 }
 
 /*Estilos del contenedor bienvenida*/
@@ -78,8 +99,29 @@
 .itemContainer{
     display: flex;
     gap: 10px;
-    justify-self: center;
     align-items: center;
+}
+
+.logoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espacio entre el logo y el enlace */
+}
+
+.logoContainer a {
+    text-align: center;
+    /* Estilos adicionales para el enlace si quieres */
+    color: #026FEB;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.logoContainer a:hover {
+    color: #0056d6;
+    text-decoration: underline;
 }
 
 .content{

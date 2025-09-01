@@ -1,3 +1,4 @@
+import Icon from '../UI/Icons';
 import styles from '../../styles/Header.module.css';
 
 const Header = () => {
@@ -5,9 +6,9 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.hero}>
         <div className={styles.info}>
-          <p>(+591) 777-77-777</p>
+          <p><Icon name = "phone" fill="currentColor"/>(+591) 777-77-777</p>
           <p>|</p>
-          <p>colEnfermerasBolivia@gmail.com</p>
+          <p> <Icon name = "mail" fill="currentColor"/>colEnfermerasBolivia@gmail.com</p>
         </div>
       </div>
     </header>

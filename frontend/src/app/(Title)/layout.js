@@ -10,8 +10,12 @@ export default function WithTitle({ children }) {
   const titles = {
     '/about': 'Sobre Nosotros',
     '/prensa': 'Noticias',
+    '/afiliados' : 'Nuestros colegios',
     '/documentos': 'Documentos y Circulares',
-    '/normativa': 'Normativas y Reglamentos'
+    '/normativa': 'Normativas y Reglamentos',
+    '/certificaciones': 'Certificados otorgados por nuestra institucion',
+    '/inscripciones': 'Inscripciones',
+    '/postgrado' : 'Cursos de Postrado'
   };
 
   const currentTitle = titles[pathname] || 'Página';

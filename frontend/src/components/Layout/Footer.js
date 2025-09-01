@@ -71,9 +71,16 @@ const Footer = () => {
           <div className={styles.divider}></div>
           <div className={styles.membershipContainer}>
             <span>Afiliaciones: </span>
-            <Image src={"/images/FEPPEN.png"} alt='FEPPEN logo' width={139} height={139}/>
-            <Image src={"/images/CIE.png"} alt='CIE logo' width={139} height={139}/>
-            <Image src={"/images/LOGO-FUDEN-COOPERACION.png"} alt='FUDEN logo' width={139} height={139}/>
+            <a href="https://feppen.org.py/" target="_blank" rel="noopener noreferrer">
+              <Image src={"/images/FEPPEN.png"} alt='FEPPEN logo' width={139} height={139} className={styles.logoItem}/>
+            </a>
+            <a href="https://www.icn.ch/es" target="_blank" rel="noopener noreferrer">
+              <Image src={"/images/CIE.png"} alt='CIE logo' width={139} height={139} className={styles.logoItem}/>
+            </a>
+            <a href="https://www.fuden.es/" target="_blank" rel="noopener noreferrer">
+              <Image src={"/images/LOGO-FUDEN-COOPERACION.png"} alt='FUDEN logo' width={139} height={139} className={styles.logoItem}/>
+
+            </a>
           </div>
 
         </div>

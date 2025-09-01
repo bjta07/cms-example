@@ -14,11 +14,11 @@ const Formacion = async () => {
             <div className={styles.mainContainer}>
                 <Documents
                     documents={congresos}
-                    title="Documentos de Interes"
+                    title="Congresos"
                 />
                 <Documents
                     documents={especialidades}
-                    title="Circulares"
+                    title="Especialidades"
                 />
             </div>
         </div>

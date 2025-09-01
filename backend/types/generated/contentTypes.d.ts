@@ -462,6 +462,35 @@ export interface ApiCardCard extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCertificadoCertificado extends Struct.CollectionTypeSchema {
+  collectionName: 'certificados';
+  info: {
+    displayName: 'certificado';
+    pluralName: 'certificados';
+    singularName: 'certificado';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::certificado.certificado'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    requisitos: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCircularCircular extends Struct.CollectionTypeSchema {
   collectionName: 'circulars';
   info: {
@@ -640,6 +669,38 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     titulo: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInscripcionInscripcion extends Struct.CollectionTypeSchema {
+  collectionName: 'inscripcions';
+  info: {
+    displayName: 'inscripcion';
+    pluralName: 'inscripcions';
+    singularName: 'inscripcion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::inscripcion.inscripcion'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    requisitos: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    titulo: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1316,12 +1377,14 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
       'api::card.card': ApiCardCard;
+      'api::certificado.certificado': ApiCertificadoCertificado;
       'api::circular.circular': ApiCircularCircular;
       'api::congreso.congreso': ApiCongresoCongreso;
       'api::departamental.departamental': ApiDepartamentalDepartamental;
       'api::documento.documento': ApiDocumentoDocumento;
       'api::especialidad.especialidad': ApiEspecialidadEspecialidad;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::inscripcion.inscripcion': ApiInscripcionInscripcion;
       'api::normativa.normativa': ApiNormativaNormativa;
       'api::noticia.noticia': ApiNoticiaNoticia;
       'api::product.product': ApiProductProduct;

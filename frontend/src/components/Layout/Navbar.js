@@ -11,11 +11,14 @@ const Navbar = () => {
 
   // Función para verificar si estamos en una página del dropdown
   const isDocumentosActive = pathname === '/documentos' || pathname === '/normativa';
+  const isNuestrosServiciosActive = pathname ==='/certificaciones' || pathname  === '/inscripciones' || pathname === '/postgrado'
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <Image src={'/images/logo.png'} alt='logo' width={97} height={97}/>
+        <Link href="/">
+          <Image src={'/images/logo.png'} alt='logo' width={100} height={100}/>
+        </Link>
         <h1>CEB</h1>
       </div>
       <ul className={styles.navList}>
@@ -48,39 +51,61 @@ const Navbar = () => {
             href="/afiliados"
             className={pathname === '/afiliados' ? styles.active : ''}
           >
-            Afiliados
+            Colegios
           </Link>
         </li>
-        <li 
-        className={`${styles.navItem} ${styles.dropdown}`}
-        onMouseEnter={() => setIsDropdownOpen(true)}
-        onMouseLeave={() => setIsDropdownOpen(false)}
-      >
-        <span className={isDocumentosActive ? styles.active : styles.dropdownToggle}>
-          Documentos
-          <span className={styles.dropdownArrow}>▼</span>
-        </span>
-        {isDropdownOpen && (
-          <div className={styles.dropdownWrapper}>
-            <ul className={styles.dropdownMenu}>
-              <li className={styles.dropdownItem}>
-                <Link href="/documentos">Circulares</Link>
-              </li>
-              <li className={styles.dropdownItem}>
-                <Link href="/normativa">Normativas</Link>
-              </li>
-            </ul>
-          </div>
-        )}
-      </li>
-        <li className={styles.navItem}>
-          <Link
-            href="/formacion"
-            className={pathname === '/formacion' ? styles.active : ''}
-          >
-            Formación
-          </Link>
-        </li>
+        <div className={styles.menu}>
+          <li 
+          className={`${styles.navItem} ${styles.dropdown}`}
+          onMouseEnter={() => setIsDropdownOpen(true)}
+          onMouseLeave={() => setIsDropdownOpen(false)}
+        >
+          <span className={isDocumentosActive ? styles.dropdownActive : styles.dropdownToggle}>
+            Documentos
+            <span className={styles.dropdownArrow}>▼</span>
+          </span>
+          {isDropdownOpen && (
+            <div className={styles.dropdownWrapper}>
+              <ul className={styles.dropdownMenu}>
+                <li className={styles.dropdownItem}>
+                  <Link href="/documentos">Circulares</Link>
+                </li>
+                <li className={styles.dropdownItem}>
+                  <Link href="/normativa">Normativas</Link>
+                </li>
+              </ul>
+            </div>
+          )}
+          </li>
+        </div>
+
+        <div className={styles.menu}>
+          <li 
+          className={`${styles.navItem} ${styles.dropdown}`}
+          onMouseEnter={() => setIsDropdownOpen(true)}
+          onMouseLeave={() => setIsDropdownOpen(false)}
+        >
+          <span className={isNuestrosServiciosActive ? styles.dropdownActive : styles.dropdownToggle}>
+            Servicios
+            <span className={styles.dropdownArrow}>▼</span>
+          </span>
+          {isDropdownOpen && (
+            <div className={styles.dropdownWrapper}>
+              <ul className={styles.dropdownMenu}>
+                <li className={styles.dropdownItem}>
+                  <Link href="/certificaciones">Certificaciones</Link>
+                </li>
+                <li className={styles.dropdownItem}>
+                  <Link href="/inscripciones">Inscripciones</Link>
+                </li>
+                <li className={styles.dropdownItem}>
+                  <Link href="/postgrado">postgrado</Link>
+                </li>
+              </ul>
+            </div>
+          )}
+          </li>
+        </div>
       </ul>
     </nav>
   );
