@@ -164,7 +164,12 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .navbar {
-    padding: 12px 20px;
+    padding: 12px 15px;
+    width: 1024px;
+  }
+
+  .logo{
+    margin-left: -15px;
   }
   
   .navList {
@@ -180,13 +185,18 @@
   .navbar {
     flex-direction: column;
     padding: 15px;
-    gap: 20px;
+    gap: 10px;
+  }
+
+  .logo{
+    align-items: center;
+    justify-content: center;
   }
   
   .navList {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 7px;
   }
   
   .navItem a,

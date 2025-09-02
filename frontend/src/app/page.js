@@ -19,13 +19,13 @@ const Home = async () => {
             Conócenos
           </Link>
         </div>
-        <Image src={'/images/enfermera.jpg'} alt='Enfermera' width={666} height={444}/>
+        <Image src={'/images/enfermera.jpg'} alt='Enfermera' width={666} height={444} className={styles.image}/>
       </div>
         <div className={styles.welcomeContainer}>
-          <Image src={'/images/enfermera.jpg'} alt='Enfermera' width={666} height={491}/>
+          <Image src={'/images/enfermera.jpg'} alt='Enfermera' width={666} height={491} className={styles.image}/>
           <div className={styles.welcome}>
             <h2>{titulo}</h2>
-            <BlocksRenderer content={descripcion}></BlocksRenderer>
+            <BlocksRenderer content={descripcion} className={styles.descripcion}></BlocksRenderer>
           </div>
         </div>
         <h3 className={styles.subtitle}>Nuestras Filiaciones</h3>

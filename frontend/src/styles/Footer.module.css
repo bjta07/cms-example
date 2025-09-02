@@ -231,11 +231,13 @@
 @media (max-width: 1024px) {
   .footerContainer {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
     gap: 25px;
   }
   
   .footerLogo {
-    grid-column: 1/3;
+    grid-column: 1/-1;
+    grid-row: 1/2;
     justify-content: center;
     text-align: center;
     padding-right: 0;
@@ -243,16 +245,24 @@
   
   .footerContacts {
     grid-column: 1/2;
+    grid-row: 2/3;
     padding: 0 10px 0 0;
   }
   
   .footterLinks {
     grid-column: 2/3;
+    grid-row: 2/3;
     padding-left: 10px;
+  }
+
+  .footerMembership{
+    grid-column: 1/-1;
+    grid-row: 3/4;
   }
   
   .footerRights {
     grid-column: 1/3;
+    grid-row: 4/-1;
   }
 }
 
@@ -267,10 +277,11 @@
     gap: 30px;
     text-align: center;
   }
+
   
   .footerLogo,
   .footerContacts,
-  .footterLinks {
+  .footterLinks{
     width: 100%;
     padding: 0;
   }
@@ -284,14 +295,21 @@
     align-self: center;
   }
   
-  .contactItem {
+  .contactItem,
+  .socialLink {
     justify-content: center;
+    width: 70%
   }
 
   .footerRights {
     margin-top: 20px;
     padding-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .membershipContainer{
+    flex-direction: column;
+    gap: 5px;
   }
 }
 

@@ -4,6 +4,9 @@
     grid-template-rows: repeat(2, auto);
     gap: 30px;
     column-gap: 0;
+    padding: 0 15px; /* Añadir padding lateral */
+    max-width: 1200px; /* Limitar ancho máximo */
+    margin: 0 auto; /* Centrar el dashboard */
 }
 
 .welcome{
@@ -13,80 +16,164 @@
     gap: 20px;
     width: 100%;
     height: 534px;
-    background: linear-gradient(45deg,  #F5F5F5, #002066);
+    background: linear-gradient(45deg, #F5F5F5, #002066);
+    padding: 20px; /* Añadir padding interno */
+    box-sizing: border-box;
+    align-items: center; /* Centrar contenido verticalmente */
 }
 
 .content{
     color: #ffffff;
     align-content: center;
+    flex: 1; /* Usar espacio disponible */
 }
 
 .content h3{
-    font-size: 32px;
+    font-size: clamp(24px, 4vw, 32px); /* Tamaño de fuente responsive */
     margin-bottom: 25px;
+    line-height: 1.2;
 }
+
 .articles{
     grid-column: 2/-1;
     grid-row: 2/-1;
     margin-bottom: 30px;
+    padding: 0 15px;
 }
 
 .articles h3{
-    font-size: 36px;
+    font-size: clamp(28px, 4.5vw, 36px); /* Tamaño de fuente responsive */
     margin-bottom: 20px;
+    line-height: 1.2;
 }
 
 .cards{
     grid-row: 2/3;
     display: flex;
     margin-bottom: 15px;
-    gap: 40px;
+    gap: clamp(20px, 4vw, 40px); /* Gap responsive */
     margin-right: 10px;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(22deg, #003366 50%, #F5F5F5 50% );
+    background: linear-gradient(22deg, #003366 50%, #F5F5F5 50%);
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-@media (max-width: 1024px) {
+/* Media Queries para diferentes tamaños de pantalla */
+
+/* Tablets grandes y escritorio pequeño */
+@media screen and (max-width: 1024px) {
     .dashboard {
-        grid-template-columns: 1fr 200px;
-        padding: 10px;
+        grid-template-columns: 1fr 400px;
+        gap: 20px;
+        padding: 0 10px;
     }
-
-    .welcome div {
-        padding: 0 15px;
+    
+    .welcome {
+        height: 450px;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .cards {
+        gap: 30px;
+        padding: 15px;
     }
 }
 
-@media (max-width: 768px) {
+/* Tablets */
+@media screen and (max-width: 768px) {
     .dashboard {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
-    }
-
-    .welcome div {
-        flex-direction: column;
         gap: 20px;
+        padding: 0 10px;
     }
-
+    
+    .welcome {
+        grid-column: 1/-1;
+        height: 350px;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .articles {
+        grid-column: 1/-1;
+        grid-row: 3/-1;
+        padding: 0;
+    }
+    
     .cards {
-        grid-row: 3/4;
-        justify-content: center;
+        grid-column: 1/-1;
+        grid-row: 2/3;
         margin-right: 0;
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .content h3 {
+        margin-bottom: 15px;
+    }
+    
+    .articles h3 {
+        margin-bottom: 15px;
+        text-align: center;
     }
 }
 
-@media (max-width: 480px) {
+/* Móviles grandes */
+@media screen and (max-width: 480px) {
     .dashboard {
-        padding: 5px;
+        padding: 0 5px;
+        gap: 15px;
     }
-
-    .welcome div {
-        padding: 0 10px;
-    }
-
-    .cards {
+    
+    .welcome {
+        height: 280px;
+        padding: 15px;
         gap: 10px;
+    }
+    
+    .content h3 {
+        margin-bottom: 10px;
+    }
+    
+    .articles h3 {
+        margin-bottom: 10px;
+    }
+    
+    .cards {
+        gap: 15px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Móviles pequeños */
+@media screen and (max-width: 360px) {
+    .dashboard {
+        padding: 0;
+        gap: 10px;
+    }
+    
+    .welcome {
+        height: 250px;
+        padding: 10px;
+        margin: 0 5px;
+        border-radius: 8px;
+    }
+    
+    .cards {
+        margin: 0 5px;
+        border-radius: 8px;
+        padding: 8px;
+        gap: 10px;
+    }
+    
+    .articles {
+        padding: 0 5px;
     }
 }
