@@ -70,7 +70,7 @@ const Footer = () => {
         <div className={styles.footerMembership}>
           <div className={styles.divider}></div>
           <div className={styles.membershipContainer}>
-            <span>Afiliaciones: </span>
+            <span><Icon name="social" className={styles.icon} fill="currentColor"/>Afiliaciones: </span>
             <a href="https://feppen.org.py/" target="_blank" rel="noopener noreferrer">
               <Image src={"/images/FEPPEN.png"} alt='FEPPEN logo' width={139} height={139} className={styles.logoItem}/>
             </a>

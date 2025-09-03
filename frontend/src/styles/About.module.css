@@ -1,11 +1,10 @@
 .dashboard{
     display: grid;
-    grid-template-columns: 1fr 490px;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(2, auto);
     gap: 30px;
     column-gap: 0;
     padding: 0 15px; /* Añadir padding lateral */
-    max-width: 1200px; /* Limitar ancho máximo */
     margin: 0 auto; /* Centrar el dashboard */
 }
 

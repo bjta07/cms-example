@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ejemplos",
+  "info": {
+    "singularName": "ejemplo",
+    "pluralName": "ejemplos",
+    "displayName": "ejemplo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "number": {
+      "type": "integer"
+    }
+  }
+}

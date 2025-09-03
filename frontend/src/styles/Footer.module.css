@@ -9,7 +9,6 @@
   background-color: #34495e;
 }
 
-
 .footerContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -212,6 +211,11 @@
 .footerMembership{
   display: flex;
   flex-direction: column;
+}
+
+.membershipContainer span{
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .membershipContainer{

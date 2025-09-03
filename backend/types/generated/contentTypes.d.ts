@@ -615,6 +615,35 @@ export interface ApiDocumentoDocumento extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiEjemploEjemplo extends Struct.CollectionTypeSchema {
+  collectionName: 'ejemplos';
+  info: {
+    displayName: 'ejemplo';
+    pluralName: 'ejemplos';
+    singularName: 'ejemplo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ejemplo.ejemplo'
+    > &
+      Schema.Attribute.Private;
+    number: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEspecialidadEspecialidad
   extends Struct.CollectionTypeSchema {
   collectionName: 'especialidads';
@@ -1382,6 +1411,7 @@ declare module '@strapi/strapi' {
       'api::congreso.congreso': ApiCongresoCongreso;
       'api::departamental.departamental': ApiDepartamentalDepartamental;
       'api::documento.documento': ApiDocumentoDocumento;
+      'api::ejemplo.ejemplo': ApiEjemploEjemplo;
       'api::especialidad.especialidad': ApiEspecialidadEspecialidad;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::inscripcion.inscripcion': ApiInscripcionInscripcion;
