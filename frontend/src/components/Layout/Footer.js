@@ -78,7 +78,7 @@ const Footer = () => {
               <Image src={"/images/CIE.png"} alt='CIE logo' width={139} height={139} className={styles.logoItem}/>
             </a>
             <a href="https://www.fuden.es/" target="_blank" rel="noopener noreferrer">
-              <Image src={"/images/LOGO-FUDEN-COOPERACION.png"} alt='FUDEN logo' width={139} height={139} className={styles.logoItem}/>
+              <Image src={'/images/fuden.png'} alt='FUDEN logo' width={139} height={139} className={styles.logoItem}/>
 
             </a>
           </div>
