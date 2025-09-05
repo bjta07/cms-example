@@ -1,13 +1,47 @@
 import { getHomeData } from '@/lib/get-home';
+import { getRegionales } from '@/lib/get-regionales';
+import { getDepartamentales } from '@/lib/get-departamentales';
 import Link from 'next/link';
 import styles from '@/styles/Home.module.css'
 import Image from 'next/image';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import NewsCarouselWrapper from '@/components/UI/NewsCarouselWrapper';
+import LogosCarousel from '@/components/UI/LogosCarousel';
+
 
 
 const Home = async () => {
   const {titulo, descripcion} = await getHomeData();
+    let regionalesData = [];
+  let departamentalesData = [];
+
+  try {
+    // Debug: Verificar que las funciones existan
+    console.log('getRegionales type:', typeof getRegionales);
+    console.log('getDepartamentales type:', typeof getDepartamentales);
+
+    // Ejecutar las funciones en el servidor
+    const results = await Promise.allSettled([
+      getRegionales(),
+      getDepartamentales()
+    ]);
+
+    // Manejar los resultados
+    if (results[0].status === 'fulfilled') {
+      regionalesData = results[0].value;
+    } else {
+      console.error('Error en getRegionales:', results[0].reason);
+    }
+
+    if (results[1].status === 'fulfilled') {
+      departamentalesData = results[1].value;
+    } else {
+      console.error('Error en getDepartamentales:', results[1].reason);
+    }
+
+  } catch (error) {
+    console.error('Error general:', error);
+  }
 
   return (
     <div className={styles.dashboard}>
@@ -28,7 +62,14 @@ const Home = async () => {
             <BlocksRenderer content={descripcion} className={styles.descripcion}></BlocksRenderer>
           </div>
         </div>
-        <h3 className={styles.subtitle}>Nuestras Filiaciones</h3>
+        <h3 className={styles.subtitle}>Nuestros colegios departamentales y regionales</h3>
+        <div className={styles.logosContainer}>
+          <LogosCarousel 
+          regionalesData={regionalesData} 
+          departamentalesData={departamentalesData} 
+        />
+        </div>
+        <h3 className={styles.subtitle}>Miembro oficial de:</h3>
         <div className={styles.membershipContainer}>
           <div className={styles.itemContainer}>
             <div className={styles.logoContainer}>

@@ -9,6 +9,7 @@ export function getCongresos(){
                 id: getCongreso.id,
                 titulo: getCongreso.titulo,
                 fecha: getCongreso.date,
+                codigo: getCongreso.Cod,
                 document: getCongreso.documento ? `${STRAPI_HOST}${getCongreso.documento.url}` : null,
                 documents: getCongreso.documento
             }))

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "especialidad",
     "pluralName": "especialidads",
-    "displayName": "especialidad"
+    "displayName": "listaEspecialidades"
   },
   "options": {
     "draftAndPublish": true
@@ -26,6 +26,10 @@
       "allowedTypes": [
         "files"
       ]
+    },
+    "Cod": {
+      "type": "uid",
+      "required": true
     }
   }
 }

@@ -1,0 +1,417 @@
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a;
+    z-index: 9999;
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24rem;
+    background-color: #f8fafc;
+    border-radius: 12px;
+}
+
+.loadingContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.loadingIcon {
+    font-size: 3rem;
+    animation: pulse 2s infinite;
+}
+
+.loadingText {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+.viewer {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.fullscreen .viewer {
+    background: #1a1a1a;
+    border-radius: 0;
+    box-shadow: none;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barra de controles superior */
+.topControls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    background: white;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.fullscreen .topControls {
+    background: #2a2a2a;
+    border-bottom-color: #404040;
+    color: white;
+}
+
+.viewModeControls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.viewModeButton {
+    padding: 0.5rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.viewModeButton:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.viewModeButton.active {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+.fullscreen .viewModeButton {
+    background: #404040;
+    color: white;
+    border-color: #555;
+}
+
+.fullscreen .viewModeButton:hover {
+    background: #555;
+}
+
+.fullscreen .viewModeButton.active {
+    background: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.pageInfo {
+    color: #374151;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.fullscreen .pageInfo {
+    color: white;
+}
+
+.actionControls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.zoomControls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.zoomButton {
+    padding: 0.5rem;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.zoomButton:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.fullscreen .zoomButton {
+    background: #404040;
+    color: white;
+    border-color: #555;
+}
+
+.fullscreen .zoomButton:hover {
+    background: #555;
+}
+
+.zoomLevel {
+    font-size: 0.875rem;
+    color: #374151;
+    min-width: 60px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.fullscreen .zoomLevel {
+    color: white;
+}
+
+.fullscreenButton {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.fullscreenButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+/* Contenedor del PDF con flechas laterales */
+.pdfContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 2rem 0;
+    flex: 1;
+    min-height: 60vh;
+}
+
+.fullscreen .pdfContainer {
+    min-height: calc(100vh - 100px);
+    padding: 1rem 0;
+}
+
+.pdfWrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: calc(100% - 120px);
+    padding: 0 1rem;
+}
+
+.twoPageView {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.pdfCanvas {
+    border: 1px solid #d1d5db;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    background: white;
+    border-radius: 4px;
+    max-width: 100%;
+    max-height: 70vh;
+}
+
+.fullscreen .pdfCanvas {
+    max-height: calc(100vh - 150px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.leftPage, .rightPage {
+    max-width: 45%;
+}
+
+/* Flechas laterales */
+.sideArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 80px;
+    background: rgba(59, 130, 246, 0.9);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.sideArrow:hover:not(.disabled) {
+    background: rgba(59, 130, 246, 1);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.sideArrow.disabled {
+    background: rgba(156, 163, 175, 0.5);
+    cursor: not-allowed;
+}
+
+.leftArrow {
+    left: 10px;
+}
+
+.rightArrow {
+    right: 10px;
+}
+
+.arrowIcon {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.icon {
+    font-size: 1rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Texto de ayuda */
+.helpText {
+    text-align: center;
+    padding: 1rem;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.fullscreen .helpText {
+    background: #2a2a2a;
+    color: white;
+    border-top-color: #404040;
+}
+
+.helpText p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.fullscreen .helpText p {
+    color: #d1d5db;
+}
+
+.helpText strong {
+    background: #3b82f6;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .twoPageView {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .leftPage, .rightPage {
+        max-width: 80%;
+    }
+    
+    .sideArrow {
+        width: 40px;
+        height: 60px;
+    }
+    
+    .arrowIcon {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 0.5rem 1rem;
+    }
+    
+    .topControls {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+    
+    .viewModeControls {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .actionControls {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .pdfWrapper {
+        max-width: calc(100% - 100px);
+    }
+    
+    .sideArrow {
+        width: 35px;
+        height: 50px;
+    }
+    
+    .leftArrow {
+        left: 5px;
+    }
+    
+    .rightArrow {
+        right: 5px;
+    }
+    
+    .arrowIcon {
+        font-size: 1.25rem;
+    }
+    
+    .pdfCanvas {
+        max-height: 60vh;
+    }
+    
+    .fullscreen .pdfCanvas {
+        max-height: calc(100vh - 120px);
+    }
+    
+    .leftPage, .rightPage {
+        max-width: 90%;
+    }
+}
+
+/* Animaciones */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}

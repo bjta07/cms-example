@@ -4,7 +4,7 @@
   "info": {
     "singularName": "reglamento",
     "pluralName": "reglamentos",
-    "displayName": "reglamento"
+    "displayName": "listaReglamentos"
   },
   "options": {
     "draftAndPublish": true

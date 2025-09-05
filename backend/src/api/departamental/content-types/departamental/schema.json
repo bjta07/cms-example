@@ -4,7 +4,7 @@
   "info": {
     "singularName": "departamental",
     "pluralName": "departamentals",
-    "displayName": "departamental"
+    "displayName": "ColegiosDepartamentales"
   },
   "options": {
     "draftAndPublish": true

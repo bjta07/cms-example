@@ -1,7 +1,7 @@
 .dashboard{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: repeat(5, auto);
     justify-self: center;
     row-gap: 0;
 }
@@ -133,6 +133,11 @@
 
 .content h4{
     color: #ffffff;
+}
+
+/*Carrusel de logos*/
+.logosContainer{
+    grid-column: 1/-1;
 }
 
 /*Carrusel*/

@@ -1,6 +1,6 @@
 import { getCongresos } from "@/lib/get-congresos"
 import { getEspecialidades } from "@/lib/get-especialidades"
-import Documents from "@/components/UI/Documents"
+import ListaCongresos from "@/components/UI/ListaCongresos"
 import styles from '@/styles/Documents.module.css'
 
 const Formacion = async () => {
@@ -12,14 +12,18 @@ const Formacion = async () => {
     return(
         <div className={styles.dashboard}>
             <div className={styles.mainContainer}>
-                <Documents
-                    documents={congresos}
-                    title="Congresos"
-                />
-                <Documents
-                    documents={especialidades}
-                    title="Especialidades"
-                />
+                <div>
+                    <ListaCongresos
+                        documents={congresos}
+                        title="Congresos"
+                    />
+                </div>
+                <div>
+                    <ListaCongresos
+                        documents={especialidades}
+                        title="Especialidades"
+                    />
+                </div>
             </div>
         </div>
     )

@@ -9,6 +9,7 @@ export function getEspecialidades(){
                 id: getEspecialidad.id,
                 titulo: getEspecialidad.titulo,
                 fecha: getEspecialidad.date,
+                codigo: getEspecialidad.Cod,
                 document: getEspecialidad.documento ? `${STRAPI_HOST}${getEspecialidad.documento.url}` : null,
                 documents: getEspecialidad.documento
             }))

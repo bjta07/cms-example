@@ -4,7 +4,7 @@
   "info": {
     "singularName": "regional",
     "pluralName": "regionals",
-    "displayName": "regional"
+    "displayName": "colegiosRegionales"
   },
   "options": {
     "draftAndPublish": true

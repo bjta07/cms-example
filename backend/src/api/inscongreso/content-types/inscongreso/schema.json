@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inscongresos",
+  "info": {
+    "singularName": "inscongreso",
+    "pluralName": "inscongresos",
+    "displayName": "Inscongreso"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellidos": {
+      "type": "string",
+      "required": true
+    },
+    "CI": {
+      "type": "string",
+      "required": true
+    },
+    "telefono": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "departamento": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "La Paz",
+        "Oruro",
+        "Cochabamba",
+        "Santa Cruz",
+        "Potosí",
+        "Chuquisaca",
+        "Tarija",
+        "Beni",
+        "Pando"
+      ]
+    },
+    "lista_congreso": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::congreso.congreso",
+      "inversedBy": "codCongreso"
+    },
+    "validacion": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Pendiente",
+      "enum": [
+        "Pendiente",
+        "Validado",
+        "Rechazado"
+      ]
+    },
+    "CodCongreso": {
+      "type": "uid",
+      "required": true
+    }
+  }
+}

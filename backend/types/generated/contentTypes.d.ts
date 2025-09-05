@@ -405,7 +405,7 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
-    displayName: 'article';
+    displayName: 'articulos-sobreNosotros';
     pluralName: 'articles';
     singularName: 'article';
   };
@@ -437,7 +437,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
 export interface ApiCardCard extends Struct.CollectionTypeSchema {
   collectionName: 'cards';
   info: {
-    displayName: 'card';
+    displayName: 'Mision-Vision';
     pluralName: 'cards';
     singularName: 'card';
   };
@@ -494,7 +494,7 @@ export interface ApiCertificadoCertificado extends Struct.CollectionTypeSchema {
 export interface ApiCircularCircular extends Struct.CollectionTypeSchema {
   collectionName: 'circulars';
   info: {
-    displayName: 'circular';
+    displayName: 'circulares';
     pluralName: 'circulars';
     singularName: 'circular';
   };
@@ -526,7 +526,7 @@ export interface ApiCircularCircular extends Struct.CollectionTypeSchema {
 export interface ApiCongresoCongreso extends Struct.CollectionTypeSchema {
   collectionName: 'congresos';
   info: {
-    displayName: 'congreso';
+    displayName: 'listaCongresos';
     pluralName: 'congresos';
     singularName: 'congreso';
   };
@@ -534,6 +534,11 @@ export interface ApiCongresoCongreso extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Cod: Schema.Attribute.UID & Schema.Attribute.Required;
+    codCongreso: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::inscongreso.inscongreso'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -557,7 +562,7 @@ export interface ApiDepartamentalDepartamental
   extends Struct.CollectionTypeSchema {
   collectionName: 'departamentals';
   info: {
-    displayName: 'departamental';
+    displayName: 'ColegiosDepartamentales';
     pluralName: 'departamentals';
     singularName: 'departamental';
   };
@@ -588,7 +593,7 @@ export interface ApiDepartamentalDepartamental
 export interface ApiDocumentoDocumento extends Struct.CollectionTypeSchema {
   collectionName: 'documentos';
   info: {
-    displayName: 'documento';
+    displayName: 'documentosInteres';
     pluralName: 'documentos';
     singularName: 'documento';
   };
@@ -615,40 +620,11 @@ export interface ApiDocumentoDocumento extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiEjemploEjemplo extends Struct.CollectionTypeSchema {
-  collectionName: 'ejemplos';
-  info: {
-    displayName: 'ejemplo';
-    pluralName: 'ejemplos';
-    singularName: 'ejemplo';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::ejemplo.ejemplo'
-    > &
-      Schema.Attribute.Private;
-    number: Schema.Attribute.Integer;
-    publishedAt: Schema.Attribute.DateTime;
-    text: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiEspecialidadEspecialidad
   extends Struct.CollectionTypeSchema {
   collectionName: 'especialidads';
   info: {
-    displayName: 'especialidad';
+    displayName: 'listaEspecialidades';
     pluralName: 'especialidads';
     singularName: 'especialidad';
   };
@@ -656,6 +632,7 @@ export interface ApiEspecialidadEspecialidad
     draftAndPublish: true;
   };
   attributes: {
+    Cod: Schema.Attribute.UID & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -704,10 +681,66 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInscongresoInscongreso extends Struct.CollectionTypeSchema {
+  collectionName: 'inscongresos';
+  info: {
+    displayName: 'Inscongreso';
+    pluralName: 'inscongresos';
+    singularName: 'inscongreso';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    apellidos: Schema.Attribute.String & Schema.Attribute.Required;
+    CI: Schema.Attribute.String & Schema.Attribute.Required;
+    CodCongreso: Schema.Attribute.UID & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    departamento: Schema.Attribute.Enumeration<
+      [
+        'La Paz',
+        'Oruro',
+        'Cochabamba',
+        'Santa Cruz',
+        'Potos\u00ED',
+        'Chuquisaca',
+        'Tarija',
+        'Beni',
+        'Pando',
+      ]
+    > &
+      Schema.Attribute.Required;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    lista_congreso: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::congreso.congreso'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::inscongreso.inscongreso'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    telefono: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    validacion: Schema.Attribute.Enumeration<
+      ['Pendiente', 'Validado', 'Rechazado']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Pendiente'>;
+  };
+}
+
 export interface ApiInscripcionInscripcion extends Struct.CollectionTypeSchema {
   collectionName: 'inscripcions';
   info: {
-    displayName: 'inscripcion';
+    displayName: 'inscripcionesColegio';
     pluralName: 'inscripcions';
     singularName: 'inscripcion';
   };
@@ -739,7 +772,7 @@ export interface ApiInscripcionInscripcion extends Struct.CollectionTypeSchema {
 export interface ApiNormativaNormativa extends Struct.CollectionTypeSchema {
   collectionName: 'normativas';
   info: {
-    displayName: 'normativa';
+    displayName: 'listaNormativas';
     pluralName: 'normativas';
     singularName: 'normativa';
   };
@@ -771,7 +804,7 @@ export interface ApiNormativaNormativa extends Struct.CollectionTypeSchema {
 export interface ApiNoticiaNoticia extends Struct.CollectionTypeSchema {
   collectionName: 'noticias';
   info: {
-    displayName: 'noticia';
+    displayName: 'listaNoticias';
     pluralName: 'noticias';
     singularName: 'noticia';
   };
@@ -800,43 +833,10 @@ export interface ApiNoticiaNoticia extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiProductProduct extends Struct.CollectionTypeSchema {
-  collectionName: 'products';
-  info: {
-    displayName: 'Product';
-    pluralName: 'products';
-    singularName: 'product';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    activo: Schema.Attribute.Boolean;
-    categoria: Schema.Attribute.String;
-    cover: Schema.Attribute.Media<'images' | 'files'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    descripcion: Schema.Attribute.Blocks;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::product.product'
-    > &
-      Schema.Attribute.Private;
-    nombre: Schema.Attribute.String;
-    precio: Schema.Attribute.Decimal;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiRegionalRegional extends Struct.CollectionTypeSchema {
   collectionName: 'regionals';
   info: {
-    displayName: 'regional';
+    displayName: 'colegiosRegionales';
     pluralName: 'regionals';
     singularName: 'regional';
   };
@@ -867,7 +867,7 @@ export interface ApiRegionalRegional extends Struct.CollectionTypeSchema {
 export interface ApiReglamentoReglamento extends Struct.CollectionTypeSchema {
   collectionName: 'reglamentos';
   info: {
-    displayName: 'reglamento';
+    displayName: 'listaReglamentos';
     pluralName: 'reglamentos';
     singularName: 'reglamento';
   };
@@ -888,6 +888,69 @@ export interface ApiReglamentoReglamento extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     titulo: Schema.Attribute.Text & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRevCientificaRevCientifica
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'rev_cientificas';
+  info: {
+    displayName: 'rev Cientifica';
+    pluralName: 'rev-cientificas';
+    singularName: 'rev-cientifica';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Codigo: Schema.Attribute.UID<'Titulo'> & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Descripcion: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    Documento: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    Fecha: Schema.Attribute.Date & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rev-cientifica.rev-cientifica'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSocCientificaSocCientifica
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'soc_cientificas';
+  info: {
+    displayName: 'soc cientifica';
+    pluralName: 'soc-cientificas';
+    singularName: 'soc-cientifica';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::soc-cientifica.soc-cientifica'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1411,15 +1474,16 @@ declare module '@strapi/strapi' {
       'api::congreso.congreso': ApiCongresoCongreso;
       'api::departamental.departamental': ApiDepartamentalDepartamental;
       'api::documento.documento': ApiDocumentoDocumento;
-      'api::ejemplo.ejemplo': ApiEjemploEjemplo;
       'api::especialidad.especialidad': ApiEspecialidadEspecialidad;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::inscongreso.inscongreso': ApiInscongresoInscongreso;
       'api::inscripcion.inscripcion': ApiInscripcionInscripcion;
       'api::normativa.normativa': ApiNormativaNormativa;
       'api::noticia.noticia': ApiNoticiaNoticia;
-      'api::product.product': ApiProductProduct;
       'api::regional.regional': ApiRegionalRegional;
       'api::reglamento.reglamento': ApiReglamentoReglamento;
+      'api::rev-cientifica.rev-cientifica': ApiRevCientificaRevCientifica;
+      'api::soc-cientifica.soc-cientifica': ApiSocCientificaSocCientifica;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "inscripcion",
     "pluralName": "inscripcions",
-    "displayName": "inscripcion"
+    "displayName": "inscripcionesColegio"
   },
   "options": {
     "draftAndPublish": true

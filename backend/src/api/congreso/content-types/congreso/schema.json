@@ -4,7 +4,7 @@
   "info": {
     "singularName": "congreso",
     "pluralName": "congresos",
-    "displayName": "congreso"
+    "displayName": "listaCongresos"
   },
   "options": {
     "draftAndPublish": true
@@ -25,6 +25,16 @@
     },
     "date": {
       "type": "date",
+      "required": true
+    },
+    "codCongreso": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inscongreso.inscongreso",
+      "mappedBy": "lista_congreso"
+    },
+    "Cod": {
+      "type": "uid",
       "required": true
     }
   }

@@ -12,6 +12,7 @@ const Navbar = () => {
   // Función para verificar si estamos en una página del dropdown
   const isDocumentosActive = pathname === '/documentos' || pathname === '/normativa';
   const isNuestrosServiciosActive = pathname ==='/certificaciones' || pathname  === '/inscripciones' || pathname === '/postgrado'
+  const isInformacionActive = pathname === '/soc-cientifica' || pathname === '/rev-cientifica'
 
   return (
     <nav className={styles.navbar}>
@@ -54,6 +55,32 @@ const Navbar = () => {
             Colegios
           </Link>
         </li>
+
+        <div className={styles.menu}>
+          <li 
+          className={`${styles.navItem} ${styles.dropdown}`}
+          onMouseEnter={() => setIsDropdownOpen(true)}
+          onMouseLeave={() => setIsDropdownOpen(false)}
+        >
+          <span className={isInformacionActive ? styles.dropdownActive : styles.dropdownToggle}>
+            Informacion Cientifica
+            <span className={styles.dropdownArrow}>▼</span>
+          </span>
+          {isDropdownOpen && (
+            <div className={styles.dropdownWrapper}>
+              <ul className={styles.dropdownMenu}>
+                <li className={styles.dropdownItem}>
+                  <Link href="/soc-cientifica">Sociedad Cientifica</Link>
+                </li>
+                <li className={styles.dropdownItem}>
+                  <Link href="/rev-cientifica">Revista Cientifica</Link>
+                </li>
+              </ul>
+            </div>
+          )}
+          </li>
+        </div>
+
         <div className={styles.menu}>
           <li 
           className={`${styles.navItem} ${styles.dropdown}`}

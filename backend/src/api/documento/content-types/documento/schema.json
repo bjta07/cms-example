@@ -4,7 +4,7 @@
   "info": {
     "singularName": "documento",
     "pluralName": "documentos",
-    "displayName": "documento"
+    "displayName": "documentosInteres"
   },
   "options": {
     "draftAndPublish": true

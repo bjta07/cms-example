@@ -29,7 +29,7 @@
 .navList {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   margin: 0;
   margin-right: 50px;
   padding: 0;
