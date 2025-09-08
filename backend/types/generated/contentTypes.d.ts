@@ -523,33 +523,33 @@ export interface ApiCircularCircular extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiCongresoCongreso extends Struct.CollectionTypeSchema {
-  collectionName: 'congresos';
+export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
+  collectionName: 'cursos';
   info: {
-    displayName: 'listaCongresos';
-    pluralName: 'congresos';
-    singularName: 'congreso';
+    displayName: 'curso';
+    pluralName: 'cursos';
+    singularName: 'curso';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Cod: Schema.Attribute.UID & Schema.Attribute.Required;
-    codCongreso: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::inscongreso.inscongreso'
-    >;
+    activo: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    codigo: Schema.Attribute.UID<''> & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    date: Schema.Attribute.Date & Schema.Attribute.Required;
-    documento: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
+    fecha: Schema.Attribute.Date & Schema.Attribute.Required;
+    inscripciones: Schema.Attribute.Relation<
       'oneToMany',
-      'api::congreso.congreso'
-    > &
+      'api::inscongreso.inscongreso'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::curso.curso'> &
       Schema.Attribute.Private;
+    overlay: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     titulo: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -684,7 +684,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
 export interface ApiInscongresoInscongreso extends Struct.CollectionTypeSchema {
   collectionName: 'inscongresos';
   info: {
-    displayName: 'Inscongreso';
+    displayName: 'Inscripciones Curso';
     pluralName: 'inscongresos';
     singularName: 'inscongreso';
   };
@@ -698,6 +698,7 @@ export interface ApiInscongresoInscongreso extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    curso: Schema.Attribute.Relation<'manyToOne', 'api::curso.curso'>;
     departamento: Schema.Attribute.Enumeration<
       [
         'La Paz',
@@ -713,10 +714,6 @@ export interface ApiInscongresoInscongreso extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Required;
     email: Schema.Attribute.Email & Schema.Attribute.Required;
-    lista_congreso: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::congreso.congreso'
-    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1471,7 +1468,7 @@ declare module '@strapi/strapi' {
       'api::card.card': ApiCardCard;
       'api::certificado.certificado': ApiCertificadoCertificado;
       'api::circular.circular': ApiCircularCircular;
-      'api::congreso.congreso': ApiCongresoCongreso;
+      'api::curso.curso': ApiCursoCurso;
       'api::departamental.departamental': ApiDepartamentalDepartamental;
       'api::documento.documento': ApiDocumentoDocumento;
       'api::especialidad.especialidad': ApiEspecialidadEspecialidad;

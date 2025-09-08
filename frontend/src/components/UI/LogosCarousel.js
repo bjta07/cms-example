@@ -114,15 +114,21 @@ export default function LogosCarousel({ regionalesData = [], departamentalesData
                   <Image
                     src={logo.imagen}
                     alt={logo.titulo}
-                    width={150}
-                    height={150}
+                    width={120}
+                    height={120}
                     className={styles.logoImage}
-                    sizes="80px"
+                    sizes="(max-width: 768px) 80px, 120px"
+                    quality={95}
+                    priority={currentIndex === 0 && index < 4}
+                    style={{
+                      width: 'auto',
+                      height: 'auto',
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      objectFit: 'contain'
+                    }}
                   />
                 </div>
-                <h3 className={styles.logoTitle}>
-                  {logo.titulo}
-                </h3>
               </div>
             ))}
           </div>

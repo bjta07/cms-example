@@ -4,7 +4,7 @@
   "info": {
     "singularName": "inscongreso",
     "pluralName": "inscongresos",
-    "displayName": "Inscongreso"
+    "displayName": "Inscripciones Curso"
   },
   "options": {
     "draftAndPublish": true
@@ -46,11 +46,11 @@
         "Pando"
       ]
     },
-    "lista_congreso": {
+    "curso": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::congreso.congreso",
-      "inversedBy": "codCongreso"
+      "target": "api::curso.curso",
+      "inversedBy": "inscripciones"
     },
     "validacion": {
       "type": "enumeration",

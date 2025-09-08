@@ -1,0 +1,398 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 35px;
+}
+
+.search{
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.searchBar input{
+    border-radius: 14px;
+    padding: 10px;
+    border: 1px solid #888888;
+}
+
+.selectOption select{
+    padding: 10px;
+    border-radius: 14px;
+    border: none;
+    color: #888888;
+}
+
+.cursoContainer{
+    display: flex;
+    gap: 30px;
+    padding: 20px 10px;
+    border-radius: 7px;
+    max-width: 1200px;
+}
+
+.itemContainer{
+    text-align: center;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px 0;
+}
+
+.titulo{
+    font-weight: 600;
+    font-size: 32px;
+    color: #434242;
+}
+
+.fecha{
+    color: #888888;
+}
+
+.fechaLimite{
+    color: #ff6b6b;
+}
+
+.inscribeteBtn{
+    border: none;
+    border-radius: 7px;
+    background-color: #3f704d;
+    padding: 5px 10px;
+    color: #ffffff;
+}
+
+.inscribeteBtn:hover{
+    cursor:pointer;
+    background-color: #1b8b0d;
+}
+
+.inscribeteBtnActive {
+  background-color: #22c55e;
+  color: white;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.inscribeteBtnActive:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+}
+
+.inscribeteBtnInactive {
+  background-color: #ef4444;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.8;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.inscribeteBtnInactive:hover {
+  background-color: #ef4444; /* Sin cambio en hover */
+  transform: none; /* Sin animación */
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); /* Mantiene la misma sombra */
+}
+
+/* Asegurar que el botón deshabilitado no tenga interacciones */
+.inscribeteBtnInactive:disabled {
+  pointer-events: none;
+}
+
+/* Agregar estos estilos a tu archivo Cursos.module.css existente */
+
+/* Estilos para imagen clickeable */
+.imageWrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.imageWrapper:hover {
+  transform: scale(1.02);
+}
+
+.clickableImage {
+  transition: opacity 0.2s ease;
+  border-radius: 8px;
+}
+
+.imageWrapper:hover .clickableImage {
+  opacity: 0.9;
+}
+
+/* Overlay con ícono de zoom */
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.imageWrapper:hover .imageOverlay {
+  opacity: 1;
+}
+
+.zoomIcon {
+  width: 48px;
+  height: 48px;
+  color: white;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Modal de imagen */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.2s ease forwards;
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 95vw;
+  max-height: 95vh;
+  padding: 20px;
+}
+
+/* Botón cerrar */
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 1001;
+  backdrop-filter: blur(4px);
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.closeButton svg {
+  width: 24px;
+  height: 24px;
+  color: #333;
+}
+
+/* Contenedor de imagen en modal */
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.modalImage {
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  max-width: 90vw;
+  max-height: 85vh;
+}
+
+/* Título de imagen */
+.imageTitle {
+  color: white;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Agregar estos estilos a tu Cursos.module.css existente */
+
+/* Sección del curso destacado */
+.featuredSection {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+/* Estilos para el item destacado */
+.featuredItem {
+    position: relative;
+    box-shadow: 0 15px 30px rgba(63, 112, 77, 0.5);
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);
+}
+
+.featuredItem:hover {
+    transform: scale(1.08);
+    box-shadow: 0 20px 40px rgba(63, 112, 77, 0.4);
+}
+
+/* Badge para curso destacado */
+.featuredBadge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(135deg, #ff6b6b, #ffa500);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    z-index: 10;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(255, 107, 107, 0.6);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    }
+}
+
+/* Grid para los otros cursos */
+.coursesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: 1200px;
+    gap: 30px;
+    padding: 20px 10px;
+    width: 100%;
+}
+
+/* Asegurar máximo 3 columnas */
+@media (min-width: 1200px) {
+    .coursesGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Modificar el contenedor original para que no interfiera */
+.cursoContainer {
+    /* Mantener para compatibilidad, pero ya no se usa */
+    display: none;
+}
+
+/* Responsive para el layout destacado */
+@media (max-width: 768px) {
+    .featuredItem {
+        transform: scale(1.02);
+        margin: 0 10px;
+    }
+    
+    .featuredItem:hover {
+        transform: scale(1.05);
+    }
+    
+    .coursesGrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 15px 5px;
+    }
+    
+    .featuredBadge {
+        font-size: 12px;
+        padding: 6px 12px;
+        top: -8px;
+        right: -8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .featuredSection {
+        margin-bottom: 25px;
+    }
+    
+    .featuredItem {
+        transform: scale(1);
+        margin: 0 5px;
+    }
+    
+    .featuredItem:hover {
+        transform: scale(1.02);
+    }
+}
+
+/* Mejorar la animación del hover para items normales */
+.itemContainer {
+    transition: all 0.3s ease;
+}
+
+.itemContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modalContent {
+    padding: 10px;
+  }
+  
+  .modalImage {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+  
+  .zoomIcon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .closeButton {
+    width: 36px;
+    height: 36px;
+    top: 5px;
+    right: 5px;
+  }
+  
+  .closeButton svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .imageTitle {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+}

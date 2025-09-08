@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * congreso controller
+ * curso controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::congreso.congreso');
+module.exports = createCoreController('api::curso.curso');

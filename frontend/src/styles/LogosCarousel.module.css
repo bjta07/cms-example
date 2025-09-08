@@ -1,176 +1,165 @@
-/* LogosCarousel.module.css */
+/* LogosCarousel.module.css - Optimizado para nitidez */
 
+/* Contenedor principal */
 .carouselWrapper {
-  position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 24px;
-}
-
-.title {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #1f2937;
-}
-
-.carouselContainer {
   position: relative;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
+  padding: 2rem 0;
+}
+
+/* Contenedor del carrusel */
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 /* Botones de navegación */
 .navButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  background-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 50%;
-  padding: 8px;
+  padding: 0.6rem;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
-  left: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease;
+  z-index: 2;
+  /* Evitar blur en botones */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .navButton:hover {
-  background-color: white;
-  transform: translateY(-50%) scale(1.1);
+  background: #3b82f6;
+  color: white;
+  transform: scale(1.1) translateZ(0);
 }
 
 .nextButton {
-  left: auto;
-  right: 8px;
+  margin-left: 0.5rem;
 }
 
 .navIcon {
   width: 24px;
   height: 24px;
-  color: #4b5563;
+  stroke-width: 2.5;
 }
 
 /* Contenedor de logos */
 .logosWrapper {
-  padding: 32px 48px;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
 }
 
 .logosGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: center;
+  height: 200px;
 }
 
-@media (min-width: 768px) {
-  .logosGrid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
+/* Card del logo - OPTIMIZADO PARA NITIDEZ */
 .logoCard {
+  background: #ffffff;
+  height: fit-content;
+  border-radius: 1rem;
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px;
-  background-color: #f9fafb;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  /* Optimizaciones para rendering nítido */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .logoCard:hover {
-  background-color: #f3f4f6;
+  transform: translateY(-6px) scale(1.02) translateZ(0);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.25);
 }
 
+/* Wrapper de imagen - TAMAÑO FIJO PARA NITIDEZ */
 .logoImageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
   position: relative;
-  width: 80px;
-  height: 80px;
-  margin-bottom: 12px;
+  /* Evitar blur en el contenedor */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
+/* Imagen optimizada para nitidez */
 .logoImage {
-  object-fit: contain;
+  /* REMOVIDO: filter: grayscale(40%); - causaba pérdida de nitidez */
+  transition: opacity 0.3s ease;
+  /* Optimizaciones para imágenes nítidas */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  /* El sizing se maneja via style inline para evitar warnings */
 }
 
-.logoTitle {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
-  text-align: center;
-  margin-bottom: 8px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  line-height: 1.4;
-}
-
-.logoLink {
-  font-size: 0.75rem;
-  color: #2563eb;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.logoLink:hover {
-  color: #1d4ed8;
+.logoCard:hover .logoImage {
+  /* REMOVIDO: filter y transform scale - causaban blur */
+  opacity: 1;
 }
 
 /* Paginación */
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 24px;
-  gap: 8px;
+  margin-top: 1.5rem;
+  gap: 0.6rem;
 }
 
 .paginationDot {
   width: 12px;
   height: 12px;
+  background: #d1d5db;
   border-radius: 50%;
   border: none;
-  background-color: #d1d5db;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .paginationDot:hover {
-  background-color: #9ca3af;
+  background: #3b82f6;
+  transform: scale(1.2) translateZ(0);
 }
 
 .paginationDotActive {
-  background-color: #2563eb;
-  transform: scale(1.25);
+  background: #2563eb;
+  transform: scale(1.3) translateZ(0);
 }
 
-/* Información */
-.info {
-  text-align: center;
-  margin-top: 16px;
-  font-size: 0.875rem;
-  color: #6b7280;
-}
-
-/* Estados de carga y error */
+/* Loading */
 .loadingContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 128px;
+  height: 200px;
 }
 
 .spinner {
-  width: 32px;
-  height: 32px;
-  border: 2px solid #e5e7eb;
-  border-bottom-color: #2563eb;
+  width: 48px;
+  height: 48px;
+  border: 4px solid #d1d5db;
+  border-top: 4px solid #2563eb;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -181,46 +170,41 @@
   }
 }
 
-.errorContainer {
-  text-align: center;
-  color: #dc2626;
-  padding: 16px;
-  background-color: #fef2f2;
-  border: 1px solid #fecaca;
-  border-radius: 8px;
-  margin: 16px;
-}
-
+/* Sin datos */
 .noDataContainer {
   text-align: center;
+  padding: 2rem;
   color: #6b7280;
-  padding: 16px;
-  background-color: #f9fafb;
-  border-radius: 8px;
-  margin: 16px;
+  font-weight: 500;
 }
 
-/* Responsive */
+/* Responsive optimizado */
 @media (max-width: 768px) {
-  .carouselWrapper {
-    padding: 16px;
-  }
-  
-  .title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .logosWrapper {
-    padding: 24px 16px;
-  }
-  
   .logosGrid {
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    height: 160px;
   }
   
   .logoImageWrapper {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .logoCard {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logosGrid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.75rem;
+    height: 140px;
+  }
+  
+  .logoImageWrapper {
+    width: 100px;
+    height: 100px;
   }
 }

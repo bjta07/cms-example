@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "congresos",
+  "collectionName": "cursos",
   "info": {
-    "singularName": "congreso",
-    "pluralName": "congresos",
-    "displayName": "listaCongresos"
+    "singularName": "curso",
+    "pluralName": "cursos",
+    "displayName": "curso"
   },
   "options": {
     "draftAndPublish": true
@@ -15,27 +15,33 @@
       "type": "string",
       "required": true
     },
-    "documento": {
+    "fecha": {
+      "type": "date",
+      "required": true
+    },
+    "overlay": {
       "type": "media",
       "multiple": false,
       "required": true,
       "allowedTypes": [
-        "files"
+        "images"
       ]
     },
-    "date": {
-      "type": "date",
+    "codigo": {
+      "type": "uid",
+      "targetField": "",
       "required": true
     },
-    "codCongreso": {
+    "inscripciones": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::inscongreso.inscongreso",
-      "mappedBy": "lista_congreso"
+      "mappedBy": "curso"
     },
-    "Cod": {
-      "type": "uid",
-      "required": true
+    "activo": {
+      "type": "boolean",
+      "required": true,
+      "default": false
     }
   }
 }
