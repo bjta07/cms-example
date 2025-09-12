@@ -1,0 +1,143 @@
+.header{
+    background-color: #054381;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerCards{
+    display: flex;
+    gap: 25px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.itemCard{
+    padding: 30px 15px;
+    width: 450px;
+    height: fit-content;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.miembros{
+    display: flex;
+    gap: 75px;
+}
+
+.directiva{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.tituloDirectiva{
+    position: relative;
+    width: 100vw;
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tituloDirectiva::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/directiva.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px) brightness(0.7); /* desenfoque y oscurecer */
+    z-index: 1;
+}
+
+.miembros{
+    display: flex;
+    height: 150px;
+    width: 300px;
+}
+
+.tituloDirectiva h3{
+    position: relative; /* asegura que quede por encima */
+    z-index: 2;
+    font-weight: bold;
+    font-size: 3rem;
+    color: white;
+}
+
+.miembrosItem{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin-top: 32px;
+}
+
+.miembrosItem h5{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: -10px;
+    padding: 0;
+}
+
+.contacto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.items{
+    display: flex;
+    gap: 75px;
+    margin: 75px 0;
+}
+
+.tituloContacto {
+    position: relative;
+    width: 100vw;
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.tituloContacto h3 {
+    position: relative; /* asegura que quede por encima */
+    font-weight: bold;
+    font-size: 3rem;
+    color: #054381;
+}
+
+.contactItem{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 15px;
+    background: linear-gradient(135deg, #054381, #5191f0);
+    padding: 10px 20px;
+    border-radius: 7px;
+    color: white;
+}
+
+.contactItem h5{
+    font-size: 1.2rem;
+    justify-content: center;
+}
+
+.contactItem p{
+    background: linear-gradient(135deg, #E6F2FA, #D0E7F9);
+    max-width: 250px;
+    border-radius: 7px;
+    color: #054381;
+    padding: 10px 30px;
+}

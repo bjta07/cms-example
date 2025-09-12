@@ -558,38 +558,6 @@ export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiDepartamentalDepartamental
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'departamentals';
-  info: {
-    displayName: 'ColegiosDepartamentales';
-    pluralName: 'departamentals';
-    singularName: 'departamental';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    descripcion: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::departamental.departamental'
-    > &
-      Schema.Attribute.Private;
-    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    titulo: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 export interface ApiDocumentoDocumento extends Struct.CollectionTypeSchema {
   collectionName: 'documentos';
   info: {
@@ -830,34 +798,46 @@ export interface ApiNoticiaNoticia extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiRegionalRegional extends Struct.CollectionTypeSchema {
-  collectionName: 'regionals';
+export interface ApiPaginaColegioPaginaColegio
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'pagina_colegios';
   info: {
-    displayName: 'colegiosRegionales';
-    pluralName: 'regionals';
-    singularName: 'regional';
+    displayName: 'paginaColegio';
+    pluralName: 'pagina-colegios';
+    singularName: 'pagina-colegio';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    codColegio: Schema.Attribute.UID & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    descripcion: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    direccion: Schema.Attribute.String & Schema.Attribute.Required;
+    facebook: Schema.Attribute.String;
+    imagenMision: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    imagenVision: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::regional.regional'
+      'api::pagina-colegio.pagina-colegio'
     > &
       Schema.Attribute.Private;
-    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    logo: Schema.Attribute.Media<'images'>;
+    mision: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    numTelefono: Schema.Attribute.String & Schema.Attribute.Required;
+    presidenta: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    tipoColegio: Schema.Attribute.Enumeration<['Departamental', 'Regional']> &
+      Schema.Attribute.Required;
+    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String;
+    vicepresidente: Schema.Attribute.String;
+    vision: Schema.Attribute.Blocks & Schema.Attribute.Required;
   };
 }
 
@@ -1469,7 +1449,6 @@ declare module '@strapi/strapi' {
       'api::certificado.certificado': ApiCertificadoCertificado;
       'api::circular.circular': ApiCircularCircular;
       'api::curso.curso': ApiCursoCurso;
-      'api::departamental.departamental': ApiDepartamentalDepartamental;
       'api::documento.documento': ApiDocumentoDocumento;
       'api::especialidad.especialidad': ApiEspecialidadEspecialidad;
       'api::home-page.home-page': ApiHomePageHomePage;
@@ -1477,7 +1456,7 @@ declare module '@strapi/strapi' {
       'api::inscripcion.inscripcion': ApiInscripcionInscripcion;
       'api::normativa.normativa': ApiNormativaNormativa;
       'api::noticia.noticia': ApiNoticiaNoticia;
-      'api::regional.regional': ApiRegionalRegional;
+      'api::pagina-colegio.pagina-colegio': ApiPaginaColegioPaginaColegio;
       'api::reglamento.reglamento': ApiReglamentoReglamento;
       'api::rev-cientifica.rev-cientifica': ApiRevCientificaRevCientifica;
       'api::soc-cientifica.soc-cientifica': ApiSocCientificaSocCientifica;

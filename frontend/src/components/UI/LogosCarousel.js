@@ -15,12 +15,12 @@ export default function LogosCarousel({ regionalesData = [], departamentalesData
     try {
       // Procesar los datos que ya vienen del servidor
       const allLogos = [...regionalesData, ...departamentalesData]
-        .filter(item => item && item.imagen) // Solo elementos con imagen
+        .filter(item => item && item.logoUrl) // Solo elementos con logoUrl
         .map(item => ({
           id: item.id,
-          titulo: item.titulo,
-          imagen: item.imagen,
-          url: item.url
+          titulo: item.Titulo,
+          imagen: item.logoUrl, // Usamos logoUrl de getPaginas
+          url: item.url || `/afiliados/${item.codColegio}` // URL externa o ruta dinámica
         }));
 
       setLogos(allLogos);
@@ -113,7 +113,7 @@ export default function LogosCarousel({ regionalesData = [], departamentalesData
                 <div className={styles.logoImageWrapper}>
                   <Image
                     src={logo.imagen}
-                    alt={logo.titulo}
+                    alt={`Logo de ${logo.titulo}`}
                     width={120}
                     height={120}
                     className={styles.logoImage}

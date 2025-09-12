@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pagina_colegios",
+  "info": {
+    "singularName": "pagina-colegio",
+    "pluralName": "pagina-colegios",
+    "displayName": "paginaColegio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "mision": {
+      "type": "blocks",
+      "required": true
+    },
+    "vision": {
+      "type": "blocks",
+      "required": true
+    },
+    "imagenVision": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imagenMision": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "codColegio": {
+      "type": "uid",
+      "required": true
+    },
+    "numTelefono": {
+      "type": "string",
+      "required": true
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "direccion": {
+      "type": "string",
+      "required": true
+    },
+    "presidenta": {
+      "type": "string",
+      "required": true
+    },
+    "vicepresidente": {
+      "type": "string"
+    },
+    "tipoColegio": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Departamental",
+        "Regional"
+      ]
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

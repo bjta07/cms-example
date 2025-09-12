@@ -128,6 +128,9 @@ const Navbar = () => {
                 <li className={styles.dropdownItem}>
                   <Link href="/inscripciones">Inscripciones</Link>
                 </li>
+                <li className={styles.dropdownItem}>
+                  <Link href="/directorio">Directorio</Link>
+                </li>
               </ul>
             </div>
           )}
