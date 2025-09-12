@@ -57,8 +57,8 @@ const NewsCarousel = ({ news }) => {
                             src={newsItem.imagen}
                             alt={newsItem.titulo}
                             width={250}
-                            height={250}
-                            style={{ objectFit: 'cover' }}
+                            height={150}
+                            style={{ objectFit: 'cover'}}
                         />
                     </div>
                 );

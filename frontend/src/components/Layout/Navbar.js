@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.logo}>
         <Link href="/">
-          <Image src={'/images/logo.png'} alt='logo' width={100} height={100}/>
+          <Image src={'/images/logo.png'} alt='logo' width={100} height={100} priority/>
         </Link>
         <h1>CEB</h1>
       </div>
