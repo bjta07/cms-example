@@ -7,7 +7,7 @@ export default function WithTitle({ children }) {
   const pathname = usePathname();
   const params = useParams();
 
-  // Mapa de rutas estáticas → títulos
+
   const titles = {
     '/about': 'Sobre Nosotros',
     '/prensa': 'Noticias',
@@ -21,7 +21,7 @@ export default function WithTitle({ children }) {
     '/postgrado': 'Cursos de Postgrado',
   };
 
-  // Función para generar título dinámico automáticamente
+  // Función para generar título dinámico
   const getDynamicTitle = (path) => {
     // Separar segmentos de la ruta
     const segments = path.split('/').filter(Boolean); // elimina strings vacíos

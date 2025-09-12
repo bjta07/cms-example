@@ -7,7 +7,6 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 const RevistaCientifica = async () => {
     const revistas = await getRevistas()
     
-    // Ordenar por fecha de más reciente a más antiguo
     const revistasSorted = revistas.sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
         
     return(

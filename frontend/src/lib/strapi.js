@@ -21,7 +21,6 @@ export function query (url){
         }
         return res.json();
     }).catch(error => {
-        console.error('API request failed:', error);
         throw error;
     });
 } 

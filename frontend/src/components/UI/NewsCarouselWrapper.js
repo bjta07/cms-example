@@ -21,7 +21,6 @@ const NewsCarouselWrapper = () => {
                 
                 setNews(response.data);
             } catch (err) {
-                console.error('Error loading news:', err);
                 setError('Error cargando las noticias');
             } finally {
                 setIsLoading(false);

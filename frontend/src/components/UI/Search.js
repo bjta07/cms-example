@@ -106,7 +106,6 @@ const SearchFilters = ({ onSearch, title = "Búsqueda de Personas" }) => {
             const data = await response.json()
             setResults(data.results || data || [])
         } catch (error) {
-            console.error('Error en la búsqueda:', error)
             setResults([])
             alert('Error al realizar la búsqueda. Por favor, intenta nuevamente.')
         } finally {

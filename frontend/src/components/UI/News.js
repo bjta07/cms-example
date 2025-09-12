@@ -25,13 +25,7 @@ const News = () => {
                 setIsLoading(true);
                 setError(null);
                 
-                console.log('Fetching news for page:', currentPage);
-                
                 const response = await getNews(currentPage);
-                
-                console.log('Full response:', response);
-                console.log('Response data:', response?.data);
-                
                 if (!response || !response.data) {
                     throw new Error('No se pudieron cargar las noticias');
                 }
@@ -40,8 +34,6 @@ const News = () => {
                 setTotalPages(response.meta.pagination.pageCount);
                 
             } catch (err) {
-                console.error('Error fetching news:', err);
-                console.error('Error details:', err.message);
                 setError(`Error al cargar las noticias: ${err.message}`);
             } finally {
                 setIsLoading(false);

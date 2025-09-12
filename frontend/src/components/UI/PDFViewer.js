@@ -28,7 +28,6 @@ const PDFViewer = ({ pdfUrl }) => {
                 setTotalPages(pdf.numPages)
                 setIsLoading(false)
             } catch (error) {
-                console.error('Error loading PDF:', error)
                 setIsLoading(false)
             }
         }

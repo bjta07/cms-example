@@ -38,9 +38,6 @@ const ModalInscripcion = ({ isOpen, onClose, congresoTitulo, congresoCodigo }) =
                 departamento: formData.departamento,
                 congresoCodigo: congresoCodigo  // Usar el código del congreso
             };
-
-            console.log('Enviando formulario con datos:', formattedData);
-            console.log('Código del congreso:', congresoCodigo);
             
             const res = await fetch('/api/inscripciones', {
                 method: 'POST',
@@ -50,17 +47,13 @@ const ModalInscripcion = ({ isOpen, onClose, congresoTitulo, congresoCodigo }) =
                 body: JSON.stringify(formattedData),
             });
 
-            console.log('Respuesta del servidor:', res.status, res.statusText);
-
             // Verificar si la respuesta es HTML (página de error) en lugar de JSON
             const contentType = res.headers.get('content-type');
             if (!contentType || !contentType.includes('application/json')) {
-                console.error('Respuesta no es JSON:', contentType);
                 throw new Error('El servidor devolvió una respuesta inválida. Verifica que la API route esté configurada correctamente.');
             }
 
             const result = await res.json();
-            console.log('Resultado parseado:', result);
 
             if (!res.ok || !result.success) {
                 throw new Error(result.error || `Error ${res.status}: ${res.statusText}`);

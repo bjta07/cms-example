@@ -8,7 +8,7 @@ import Link from "next/link"
 
 
 export default async function ColegioDetalle({ params }) {
-  const { codColegio } = await params   // 👈 importante el await
+  const { codColegio } = await params
   const paginas = await getPaginas()
   const pagina = paginas.find(p => p.codColegio === codColegio)
 

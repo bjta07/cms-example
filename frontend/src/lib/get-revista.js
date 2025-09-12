@@ -29,11 +29,10 @@ export function getRevistaByCodigo(codigo){
             descripcion: revista.Descripcion,
             fecha: revista.Fecha,
             codigo: revista.Codigo,
-            url: revista.Documento ? `${STRAPI_HOST}${revista.Documento.url}` : null, // ← Cambiado a 'url'
+            url: revista.Documento ? `${STRAPI_HOST}${revista.Documento.url}` : null, 
             documento: revista.Documento
         }
     }).catch(error => {
-        console.error('Error fetching revista:', error)
         return null
     })
 }

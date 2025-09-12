@@ -129,19 +129,3 @@ const Icon = ({
 };
 
 export default Icon;
-
-// ============================================
-// EJEMPLOS DE USO
-// ============================================
-
-// Uso básico:
-// <Icon name="pdf" size={18} />
-// <Icon name="externalLink" size={14} />
-// <Icon name="calendar" size={20} />
-
-// Con estilos:
-// <Icon name="pdf" size={24} className="text-red-500" />
-// <Icon name="search" size={16} className="text-gray-400" />
-
-// Con color personalizado:
-// <Icon name="pdf" size={32} color="#EF4444" />

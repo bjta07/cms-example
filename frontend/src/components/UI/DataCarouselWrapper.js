@@ -21,7 +21,6 @@ const DataCarouselWrapper = ({ title, dataFetcher, onItemClick, className = "", 
                 
                 setItems(data);
             } catch (err) {
-                console.error('Error loading data:', err);
                 setError('Error al cargar los datos');
             } finally {
                 setLoading(false);

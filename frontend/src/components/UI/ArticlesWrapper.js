@@ -7,13 +7,11 @@ const ArticlesWrapper = async () => {
         const articles = await getArticles();
         
         if (!articles || !Array.isArray(articles)) {
-            console.error('Articles data is not in the expected format:', articles);
             return <div>Error: No se pudieron cargar los artículos</div>;
         }
 
         return <Articles articles={articles} />;
     } catch (error) {
-        console.error('Error loading articles:', error);
         return <div>Error cargando los artículos</div>;
     }
 };
