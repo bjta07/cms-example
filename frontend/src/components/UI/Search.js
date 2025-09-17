@@ -31,19 +31,20 @@ const SearchFilters = ({ onSearch, title = "Búsqueda de Personas" }) => {
         { value: 'pando', label: 'Pando' }
     ]
 
-    // Especialidades (puedes modificar según tus necesidades)
+    // Especialidades
     const especialidades = [
         { value: '', label: 'Todas las especialidades' },
-        { value: 'medicina-general', label: 'Medicina General' },
-        { value: 'pediatria', label: 'Pediatría' },
-        { value: 'cardiologia', label: 'Cardiología' },
-        { value: 'neurologia', label: 'Neurología' },
-        { value: 'ginecologia', label: 'Ginecología' },
-        { value: 'traumatologia', label: 'Traumatología' },
-        { value: 'dermatologia', label: 'Dermatología' },
-        { value: 'oftalmologia', label: 'Oftalmología' },
-        { value: 'psiquiatria', label: 'Psiquiatría' },
-        { value: 'odontologia', label: 'Odontología' }
+        { value: 'medico-quirurgica', label: 'Medico Quirurgica' },
+        { value: 'enfermeria-quirurgica', label: 'Enfermeria Quirurgica' },
+        { value: 'enfermeria-ginecoobstetricia', label: 'Enfermeria Ginecoobstetricia' },
+        { value: 'enfermeria-pediatrica', label: 'Enfermeria Pediatrica' },
+        { value: 'enfermeria-de-salud-mental', label: 'Enfermeria de Salud Mental' },
+        { value: 'enfermeria-salud-publica', label: 'Enfermeria Salud Publica' },
+        { value: 'enfermeria-administracion-de-servicios-de-salud', label: 'Enfermeria Administracion de Servicios de Salud' },
+        { value: 'educacion', label: 'Educacion' },
+        { value: 'investigacion', label: 'Investigacion' },
+        { value: 'enfermeria-en-medicina-critica-y-terapia-intensiva', label: 'Enfermeria en Medicina Critica y Terapia Intensiva' },
+        { value: 'geriatria-y-gerontologia', label: 'Geriatria y Gerontologia'}
     ]
 
     // Función para actualizar filtros

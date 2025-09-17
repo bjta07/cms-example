@@ -31,15 +31,15 @@ export async function GET(request) {
                 fecha: getNew.fecha,
                 contenido: getNew.contenido,
                 imagen: getNew.photo && getNew.photo.length > 0
-                     ? `${STRAPI_HOST}${getNew.photo[0].url}`
-                     : null,
+                    ? `${STRAPI_HOST}${getNew.photo[0].url}`
+                    : null,
                 imagenes: getNew.photo
-                     ? getNew.photo.map(img => `${STRAPI_HOST}${img.url}`)
+                    ? getNew.photo.map(img => `${STRAPI_HOST}${img.url}`)
                     : [],
                 photo: getNew.photo,
                 idPhoto: getNew.photo && getNew.photo.length > 0
-                     ? getNew.photo[0].id
-                     : null
+                    ? getNew.photo[0].id
+                    : null
             })),
             meta: {
                 pagination: data.meta.pagination

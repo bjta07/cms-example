@@ -25,7 +25,7 @@ export default function LogosCarousel({ regionalesData = [], departamentalesData
 
       setLogos(allLogos);
     } catch (error) {
-      console.error('Error processing logos:', error);
+      console.error('Error processing logos');
       setLogos([]);
     } finally {
       setIsLoading(false);

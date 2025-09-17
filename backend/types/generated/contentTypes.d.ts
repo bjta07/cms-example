@@ -588,38 +588,6 @@ export interface ApiDocumentoDocumento extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiEspecialidadEspecialidad
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'especialidads';
-  info: {
-    displayName: 'listaEspecialidades';
-    pluralName: 'especialidads';
-    singularName: 'especialidad';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Cod: Schema.Attribute.UID & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    date: Schema.Attribute.Date & Schema.Attribute.Required;
-    documento: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::especialidad.especialidad'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    titulo: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   collectionName: 'home_pages';
   info: {
@@ -1450,7 +1418,6 @@ declare module '@strapi/strapi' {
       'api::circular.circular': ApiCircularCircular;
       'api::curso.curso': ApiCursoCurso;
       'api::documento.documento': ApiDocumentoDocumento;
-      'api::especialidad.especialidad': ApiEspecialidadEspecialidad;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::inscongreso.inscongreso': ApiInscongresoInscongreso;
       'api::inscripcion.inscripcion': ApiInscripcionInscripcion;

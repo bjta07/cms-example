@@ -1,7 +1,6 @@
 import { getAboutCards } from '@/lib/get-aboutCards'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import styles from '@/styles/AboutCards.module.css'
-import { Children } from 'react'
 
 const AboutCards = async ({ filter }) => {
     const aboutCards = await getAboutCards()
