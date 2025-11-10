@@ -26,21 +26,22 @@ const Footer = () => {
               <Icon name = "mail" className={styles.icon} fill="currentColor"/>
               <div>
                 <strong>Email:</strong>
-                <span>colEnf@gmail.com</span>
+                <span>colegiodenfermerasbolivia@gmail.com</span>
               </div>
             </div>
             <div className={styles.contactItem}>
               <Icon name="phone" className={styles.icon} fill="currentColor"/>
               <div>
                 <strong>Teléfonos:</strong>
-                <span>77777777</span>
+                <span>2145108</span>
+                <span>2441713 (fax)</span>
               </div>
             </div>
             <div className={styles.contactItem}>
               <Icon name="location" fill="currentColor"/>
               <div>
                 <strong>Dirección:</strong>
-                <span>Batallón Colorados Edif. Cóndor piso 14 of: 15</span>
+                <span>Batallón Colorados Edif. El Cóndor piso 14 of: 1406</span>
               </div>
             </div>
           </div>
@@ -60,7 +61,7 @@ const Footer = () => {
               <Icon name="instagram" fill="currentColor"/>
               <span>Instagram</span>
             </a>
-            <a href="#" className={styles.socialLink}>
+            <a href="https://www.facebook.com/p/Colegio-de-Enfermeras-de-Bolivia-Oficial-100079684792896" target='_blank' className={styles.socialLink}>
               <Icon name="facebook" fill="currentColor"/>
               <span>Facebook</span>
             </a>

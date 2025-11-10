@@ -75,9 +75,9 @@ const Navbar = () => {
                 <li className={styles.dropdownItem}>
                   <Link href="/rev-cientifica">Revista Cientifica</Link>
                 </li>
-                <li className={styles.dropdownItem}>
+                {/* <li className={styles.dropdownItem}>
                   <Link href="/cursos">Actividades Cientificas</Link>
-                </li>
+                </li> */}
               </ul>
             </div>
           )}
