@@ -92,7 +92,7 @@
 .membershipContainer{
     grid-column: 1/-1;
     display: flex;
-    gap: 30px;
+    gap: 100px;
     margin: 0 25px;
 }
 
@@ -100,6 +100,12 @@
     display: flex;
     gap: 10px;
     align-items: center;
+}
+
+.par{
+    display: flex;
+    flex-direction: column;
+    gap: 75px;
 }
 
 .logoContainer {

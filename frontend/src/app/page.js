@@ -47,34 +47,48 @@ const Home = async () => {
         </div>
         <h3 className={styles.subtitle}>Miembro oficial de:</h3>
         <div className={styles.membershipContainer}>
-          <div className={styles.itemContainer}>
-            <div className={styles.logoContainer}>
-              <Image src={'/images/FEPPEN.png'} alt='Feppen logo' width={200} height={199}/>
-              <a href="https://feppen.org.py/" target="_blank" rel="noopener noreferrer">Visita su sitio web</a>
+          <div className={styles.par}>
+            <div className={styles.itemContainer}>
+              <div className={styles.logoContainer}>
+                <Image src={'/images/FEPPEN.png'} alt='Feppen logo' width={200} height={199}/>
+                <a href="https://feppen.org.py/" target="_blank" rel="noopener noreferrer">Visita su sitio web</a>
+              </div>
+              <div className={styles.content}>
+                <h4>FEPPEN</h4>
+                <p>La Federación Panamericana de Profesionales de Enfermería (FEPPEN), fundada en 1970, agrupa organizaciones de enfermería de Latinoamérica y el Caribe. Sin sede fija, actualmente opera en Paraguay (2021-2025).</p>
+              </div>
             </div>
-            <div className={styles.content}>
-              <h4>FEPPEN</h4>
-              <p>La Federación Panamericana de Profesionales de Enfermería (FEPPEN), fundada en 1970, agrupa organizaciones de enfermería de Latinoamérica y el Caribe. Sin sede fija, actualmente opera en Paraguay (2021-2025).</p>
+            <div className={styles.itemContainer}>
+              <div className={styles.logoContainer}>
+                <Image src={'/images/CIE NEW.png'} alt='Feppen logo' width={200} height={199}/>
+                <a href="https://www.icn.ch/es" target="_blank" rel="noopener noreferrer">Visita su sitio web</a>
+              </div>
+              <div className={styles.content}>
+                <h4>CIE</h4>
+                <p>El Consejo Internacional de Enfermeras (CIE) es una federación de más de 140 asociaciones nacionales de enfermeras (ANE) en representación de los 30 millones de enfermeras en todo el mundo.</p>
+              </div>
             </div>
           </div>
-          <div className={styles.itemContainer}>
-            <div className={styles.logoContainer}>
-              <Image src={'/images/CIE NEW.png'} alt='Feppen logo' width={200} height={199}/>
-              <a href="https://www.icn.ch/es" target="_blank" rel="noopener noreferrer">Visita su sitio web</a>
+          <div className={styles.par}>
+            <div className={styles.itemContainer}>
+              <div className={styles.logoContainer}>
+                <Image src={'/images/fuden.png'} alt='Feppen logo' width={200} height={199}/>
+                <a href="https://www.fuden.es/" target="_blank" rel="noopener noreferrer">Visita su sitio web</a>
+              </div>
+              <div className={styles.content}>
+                <h4>FUDEN</h4>
+                <p>La Federación Panamericana de Profesionales de Enfermería (FEPPEN), fundada en 1970, agrupa organizaciones de enfermería de Latinoamérica y el Caribe. Sin sede fija, actualmente opera en Paraguay (2021-2025).</p>
+              </div>
             </div>
-            <div className={styles.content}>
-              <h4>CIE</h4>
-              <p>El Consejo Internacional de Enfermeras (CIE) es una federación de más de 140 asociaciones nacionales de enfermeras (ANE) en representación de los 30 millones de enfermeras en todo el mundo.</p>
-            </div>
-          </div>
-          <div className={styles.itemContainer}>
-            <div className={styles.logoContainer}>
-              <Image src={'/images/fuden.png'} alt='Feppen logo' width={200} height={199}/>
-              <a href="https://www.fuden.es/" target="_blank" rel="noopener noreferrer">Visita su sitio web</a>
-            </div>
-            <div className={styles.content}>
-              <h4>FUDEN</h4>
-              <p>La Federación Panamericana de Profesionales de Enfermería (FEPPEN), fundada en 1970, agrupa organizaciones de enfermería de Latinoamérica y el Caribe. Sin sede fija, actualmente opera en Paraguay (2021-2025).</p>
+              <div className={styles.itemContainer}>
+                <div className={styles.logoContainer}>
+                  <Image src={'/images/ops-logo.png'} alt='Feppen logo' width={200} height={199}/>
+                  <a href="https://campus.paho.org/es" target="_blank" rel="noopener noreferrer">Visita su sitio web</a>
+                </div>
+                <div className={styles.content}>
+                  <h4>Campus virtual</h4>
+                  <p>Todos los cursos virtuales, materiales, recursos y certificados del Campus Virtual de Salud Pública de la OPS/OMS son 100% de acceso libre y gratuito para los participantes.</p>
+                </div>
             </div>
           </div>
         </div>
